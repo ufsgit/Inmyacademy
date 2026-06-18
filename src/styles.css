@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Variables */
+:root {
+  --theme-color: #F97316; /* Default orange */
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  color: #6B7280;
+  -webkit-font-smoothing: antialiased;
+}

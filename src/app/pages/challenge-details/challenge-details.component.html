@@ -1,0 +1,233 @@
+@if (notFound) {
+  <div style="min-height:100vh; background:#FFF6F6; display:flex; align-items:center; justify-content:center; font-family:'Poppins','Inter',sans-serif; padding:0 24px;">
+    <div style="text-align:center; max-width:420px;">
+      <h2 style="font-size:22px; font-weight:800; color:#111111; margin-bottom:8px;">Challenge Not Found</h2>
+      <p style="font-size:15px; color:#666666; margin-bottom:32px;">The challenge you are looking for does not exist.</p>
+      <button (click)="goBack()" style="background:#D32F2F; color:#fff; border:none; border-radius:8px; padding:12px 28px; font-weight:700; font-size:15px; cursor:pointer;">
+        Go Back to Challenges
+      </button>
+    </div>
+  </div>
+} @else {
+  <!-- Main Page Wrapper — very light pink background -->
+  <div style="background:#FFF6F6; font-family:'Poppins','Inter',sans-serif; min-height:100vh; color:#333333;">
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <section style="background:#FFF6F6; padding:60px 24px 48px 24px; text-align:center;">
+      <div style="max-width:900px; margin:0 auto;">
+
+        <!-- Challenge Title -->
+        <h1 style="font-size:40px; font-weight:800; color:#000000; margin:0 0 16px 0; line-height:1.2; letter-spacing:-0.01em; font-family:'Poppins','Inter',sans-serif;">
+          {{ challenge.title }}
+        </h1>
+
+        <!-- Tagline -->
+        <p style="font-size:18px; font-weight:500; color:#000000; margin:0 0 22px 0; font-family:'Poppins','Inter',sans-serif;">
+          {{ challenge.tagline }}
+        </p>
+
+        <!-- Description -->
+        <p style="font-size:16px; font-weight:400; color:#333333; margin:0 auto 44px auto; max-width:700px; line-height:1.7; font-family:'Poppins','Inter',sans-serif;">
+          {{ challenge.description }}
+        </p>
+
+        <!-- Info Cards -->
+        <app-challenge-info-cards
+          [ageGroup]="challenge.ageGroup"
+          [entryFee]="challenge.entryFee"
+          [format]="challenge.format">
+        </app-challenge-info-cards>
+
+      </div>
+    </section>
+
+    <!-- ===================== THE CHALLENGE SECTION ===================== -->
+    <section style="background:#FFFFFF; padding:48px 24px 56px 24px;">
+      <div style="max-width:900px; margin:0 auto;">
+        <h2 style="font-size:24px; font-weight:700; color:#000000; margin:0 0 16px 0; font-family:'Poppins','Inter',sans-serif;">The Challenge</h2>
+
+        <p style="font-size:16px; color:#222222; margin:0 0 16px 0; line-height:1.7; font-family:'Poppins','Inter',sans-serif;">
+          {{ getIntroText(challenge.slug) }}
+        </p>
+
+        <!-- Bullet list with red dots —  matching Oratory reference -->
+        <ul style="list-style:none; padding:0; margin:0 0 0 0; display:flex; flex-direction:column; gap:10px;">
+          @for (detail of challenge.challengeDetails; track detail) {
+            <li style="display:flex; align-items:center; gap:12px;">
+              <span style="width:8px; height:8px; border-radius:50%; background:#D32F2F; flex-shrink:0; display:inline-block;"></span>
+              <span style="font-size:16px; color:#222222; line-height:1.6; font-family:'Poppins','Inter',sans-serif;">{{ detail }}</span>
+            </li>
+          }
+        </ul>
+
+        <!-- Spacer between last bullet and closing sentence -->
+        <div style="height:20px;"></div>
+
+        <p style="font-size:16px; color:#222222; line-height:1.7; margin:0; font-weight:400; font-family:'Poppins','Inter',sans-serif;">
+          {{ getOutroText(challenge.slug) }}
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== COMPETITION STEPS ===================== -->
+    <app-competition-steps [slug]="challenge.slug" [entryFee]="challenge.entryFee"></app-competition-steps>
+
+    <!-- ===================== SCORING SYSTEM ===================== -->
+    <app-scoring-system [criteria]="challenge.scoringCriteria"></app-scoring-system>
+
+    <!-- ===================== SUPPORT RECOGNITION ===================== -->
+    <section style="background:#FFF6F6; padding:60px 24px; border-top:1px solid #EBEBEB;">
+      <div style="max-width:960px; margin:0 auto;">
+        <h2 style="font-size:22px; font-weight:700; color:#000000; margin:0 0 28px 0;">Support Recognition</h2>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:16px;">
+
+          <!-- Card 1: Growing Support -->
+          <div style="background:#FFFFFF; border:1px solid #E8E8E8; border-radius:12px; padding:28px 16px; display:flex; flex-direction:column; align-items:center; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+            <svg width="60" height="60" viewBox="0 0 64 64" fill="none" style="margin-bottom:14px;">
+              <circle cx="32" cy="32" r="30" fill="#ECFDF5"/>
+              <path d="M32 46V32M24 28C24 28 28 26 32 30C36 26 40 28 40 28C40 28 39 34 32 34C25 34 24 28 24 28Z" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 46H42" stroke="#92400E" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span style="font-size:14px; font-weight:700; color:#111111;">Growing Support</span>
+          </div>
+
+          <!-- Card 2: Rising Support -->
+          <div style="background:#FFFFFF; border:1px solid #E8E8E8; border-radius:12px; padding:28px 16px; display:flex; flex-direction:column; align-items:center; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+            <svg width="60" height="60" viewBox="0 0 64 64" fill="none" style="margin-bottom:14px;">
+              <circle cx="32" cy="32" r="30" fill="#FFFBEB"/>
+              <path d="M32 16L37 27.5L49 29L40 37.5L42.5 49.5L32 43L21.5 49.5L24 37.5L15 29L27 27.5L32 16Z" fill="#F59E0B" stroke="#D97706" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-size:14px; font-weight:700; color:#111111;">Rising Support</span>
+          </div>
+
+          <!-- Card 3: Community Star -->
+          <div style="background:#FFFFFF; border:1px solid #E8E8E8; border-radius:12px; padding:28px 16px; display:flex; flex-direction:column; align-items:center; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+            <svg width="60" height="60" viewBox="0 0 64 64" fill="none" style="margin-bottom:14px;">
+              <circle cx="32" cy="32" r="30" fill="#EFF6FF"/>
+              <path d="M42 22L34 30M42 22C42 22 43 28 39 32L27 44L20 44L20 37L32 25C36 21 42 22 42 22Z" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 40L16 48M20 44L23 41" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span style="font-size:14px; font-weight:700; color:#111111;">Community Star</span>
+          </div>
+
+          <!-- Card 4: Featured Entry -->
+          <div style="background:#FFFFFF; border:1px solid #E8E8E8; border-radius:12px; padding:28px 16px; display:flex; flex-direction:column; align-items:center; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+            <svg width="60" height="60" viewBox="0 0 64 64" fill="none" style="margin-bottom:14px;">
+              <circle cx="32" cy="32" r="30" fill="#FFFBEB"/>
+              <path d="M44 20H40V16H24V20H20C17.79 20 16 21.79 16 24V28C16 32.42 19.58 36 24 36H26.34C28.2 38.38 31.02 40 34.34 40H29.66C32.98 40 35.8 38.38 37.66 36H40C44.42 36 48 32.42 48 28V24C48 21.79 46.21 20 44 20ZM32 40C29.79 40 28 41.79 28 44V46H36V44C36 41.79 34.21 40 32 40ZM28 40C29.79 40 28 41.79 28 44V46H36V44C36 41.79 34.21 40 32 40ZM28 48H36V50H28V48Z" fill="#F59E0B"/>
+            </svg>
+            <span style="font-size:14px; font-weight:700; color:#111111;">Featured Entry</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REWARDS ===================== -->
+    <app-rewards [rewards]="challenge.rewards"></app-rewards>
+
+    <!-- ===================== REGISTRATION FORM ===================== -->
+    <app-registration-form [entryFee]="challenge.entryFee"></app-registration-form>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer style="background:#FFFFFF; font-family:'Poppins','Inter',sans-serif;">
+
+      <!-- Contact Banner -->
+      <div style="max-width:960px; margin:0 auto; padding:60px 24px 0 24px;">
+        <div style="background:#2D3192; border-radius:20px; padding:36px 40px; display:flex; flex-wrap:wrap; gap:32px; align-items:center; justify-content:space-between; margin-bottom:60px;">
+
+          <div style="display:flex; align-items:center; gap:16px; flex:1; min-width:220px;">
+            <div style="width:44px; height:44px; background:#ffffff; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" fill="#2D3192" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <div>
+              <p style="color:rgba(199,210,254,0.9); font-size:12px; font-weight:600; margin:0 0 3px 0;">Address</p>
+              <p style="color:#ffffff; font-size:13px; font-weight:600; margin:0; line-height:1.4;">IN MY ACADEMY LTD 71-75, Shelton Street, Covent Garden, London, WC2H 9JQ</p>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:16px; flex:1; min-width:200px;">
+            <div style="width:44px; height:44px; background:#ffffff; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" fill="#2D3192" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+              </svg>
+            </div>
+            <div>
+              <p style="color:rgba(199,210,254,0.9); font-size:12px; font-weight:600; margin:0 0 3px 0;">Email</p>
+              <p style="color:#ffffff; font-size:13px; font-weight:600; margin:0;">info&#64;inmyacademy.com</p>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:16px; flex:1; min-width:200px;">
+            <div style="width:44px; height:44px; background:#ffffff; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" fill="#2D3192" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
+            </div>
+            <div>
+              <p style="color:rgba(199,210,254,0.9); font-size:12px; font-weight:600; margin:0 0 3px 0;">Call</p>
+              <p style="color:#ffffff; font-size:13px; font-weight:600; margin:0;">+447748416224</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Footer Links -->
+      <div style="background:#F9F9F9; border-top:1px solid #EBEBEB; padding:48px 24px 24px 24px;">
+        <div style="max-width:960px; margin:0 auto;">
+          <div style="display:grid; grid-template-columns:2fr 1fr 1.5fr; gap:48px; margin-bottom:40px;">
+
+            <div>
+              <p style="font-size:14px; color:#666666; line-height:1.8; margin:0 0 20px 0;">
+                We're more than a platform—we're a global powerhouse redefining education with interactive, real-world mastery that excites, engages, and empowers you to achieve the impossible.
+              </p>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span style="font-size:13px; font-weight:700; color:#111111;">Follow on:</span>
+                <a href="#" style="width:30px; height:30px; border-radius:50%; background:#2D3192; color:#fff; display:flex; align-items:center; justify-content:center; text-decoration:none;">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                </a>
+                <a href="#" style="width:30px; height:30px; border-radius:50%; background:#2D3192; color:#fff; display:flex; align-items:center; justify-content:center; text-decoration:none;">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.119 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+                </a>
+                <a href="#" style="width:30px; height:30px; border-radius:50%; background:#2D3192; color:#fff; display:flex; align-items:center; justify-content:center; text-decoration:none;">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h4 style="font-size:14px; font-weight:700; color:#111111; margin:0 0 16px 0;">Quick Links</h4>
+              <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
+                <li><a href="#" style="font-size:14px; color:#666666; text-decoration:none; font-weight:500;">About</a></li>
+                <li><a href="#" style="font-size:14px; color:#666666; text-decoration:none; font-weight:500;">Course</a></li>
+                <li><a href="#" style="font-size:14px; color:#666666; text-decoration:none; font-weight:500;">Contact Us</a></li>
+                <li><a href="#" style="font-size:14px; color:#666666; text-decoration:none; font-weight:500;">Blog</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 style="font-size:14px; font-weight:700; color:#111111; margin:0 0 16px 0;">SkillStorm Global Competitions</h4>
+              <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
+                <li><a routerLink="/skillstorm/open-challenges" style="font-size:14px; color:#666666; text-decoration:none; font-weight:500;">Global Open Challenges</a></li>
+                <li><a routerLink="/skillstorm/mastery-battles" style="font-size:14px; color:#666666; text-decoration:none; font-weight:500;">Global Mastery Battles</a></li>
+                <li><a routerLink="/skillstorm/school-competitions" style="font-size:14px; color:#666666; text-decoration:none; font-weight:500;">Global School Competitions</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div style="border-top:1px solid #EBEBEB; padding-top:20px; font-size:13px; color:#999999;">
+            © 2025 All Rights Reserved
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+  </div>
+}

@@ -1,0 +1,877 @@
+/* ============================================================
+   OPEN CHALLENGES — Pixel-perfect spacing & typography
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+@font-face {
+  font-family: 'Gilmer';
+  src: local('Gilmer Bold'),
+       url('/assets/fonts/Gilmer-Bold.woff2') format('woff2'),
+       url('/assets/fonts/Gilmer-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilmer';
+  src: local('Gilmer'),
+       url('/assets/fonts/Gilmer-Regular.woff2') format('woff2'),
+       url('/assets/fonts/Gilmer-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- HOST ---- */
+:host {
+  display: block;
+  font-family: 'Kumbh Sans', sans-serif;
+  background: #FFFFFF;
+  color: #333333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ---- RESET ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ---- CONTAINER — fixed 1320px desktop ---- */
+.container {
+  width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero-section {
+  background: #FFFFFF;
+  padding: 52px 0 0 0;
+  text-align: center;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid #FF8C00;
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #FF8C00;
+  margin-bottom: 32px;
+  background: transparent;
+  line-height: 1;
+}
+.hero-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.hero-title {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.5px;
+}
+.hero-title .accent { color: #FF8C00; }
+
+.hero-subtitle {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #4B5563;
+  line-height: 1.65;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 60px;
+}
+
+/* ---- BUTTONS ---- */
+.btn-red {
+  background: #FF8C00;
+  color: #FFFFFF;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 30px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  transition: background 0.2s;
+}
+.btn-red:hover { background: #E67E00; }
+
+.btn-outline {
+  background: #FFFFFF;
+  color: #111111;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 13px 30px;
+  border-radius: 50px;
+  border: 1.5px solid #111111;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  transition: background 0.2s;
+}
+.btn-outline:hover { background: #F5F5F5; }
+
+.stats-section {
+  background: #FFFFFF;
+  padding: 40px 0 80px 0;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1120px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #FFF5E9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #FF8C00;
+  flex-shrink: 0;
+}
+.stat-circle svg { width: 34px; height: 34px; }
+
+.stat-value {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   SECTION COMMON
+   ============================================================ */
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.25;
+  margin: 0 0 12px 0;
+}
+
+.section-subtitle {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.5;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   CHALLENGES
+   ============================================================ */
+.challenges-section {
+  background: #F5F5F5;
+  padding: 80px 0;
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.challenge-row-2 {
+  display: flex;
+  gap: 28px;
+  margin-top: 28px;
+  justify-content: center;
+  align-items: stretch;
+}
+.challenge-row-2 .challenge-card {
+  width: calc(33.333% - 9px);
+  flex-shrink: 0;
+}
+
+/* CARD */
+.challenge-card {
+  background: #FFFFFF;
+  border: 1.6px solid rgba(117, 119, 131, 0.21);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  height: 100%;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.card-icon-box {
+  width: 56px;
+  height: 56px;
+  background: #fff6e7;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.card-icon-box svg { width: 28px; height: 28px; color: #ff9c31; stroke: #ff9c31; }
+
+.age-badge {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 35px;
+  white-space: nowrap;
+  line-height: 1;
+}
+.badge-green  { background: #E8F8EF; color: #1A7A45; border: 1.5px solid #5DBE8A; }
+.badge-blue   { background: #0019ff59; color: #2c3587; border: 0.8px solid #2c3587; }
+.badge-red    { background: #FDEAEA; color: #C0392B; border: 1.5px solid #E88B8B; }
+.badge-orange { background: #FFF5E9; color: #CC6600; border: 1.5px solid #FFBE7A; }
+.badge-orange-outline { background: #fe9a0024; color: #fe9a00; border: 0.8px solid #fe9a00; }
+
+.card-title {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 18px;
+  margin: 0 0 12px 0;
+}
+
+.card-description {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #757783;
+  line-height: 28px;
+  margin: 0 0 16px 0;
+}
+
+.card-task-box {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 22px;
+  border: none;
+}
+.card-task-label {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  display: block;
+  margin-bottom: 8px;
+}
+.card-task-text {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #757783;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card-details-area {
+  margin-bottom: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.detail-pill {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000000;
+  background: #f5f5f5;
+  border-radius: 35px;
+  padding: 12px 24px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.detail-text {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #757783;
+  line-height: 1.4;
+}
+
+.btn-card-enter {
+  display: block;
+  width: 100%;
+  background: #fe9a00;
+  color: #ffffff;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-top: auto;
+  line-height: 1;
+  transition: background 0.2s;
+}
+.btn-card-enter:hover { background: #E67E00; }
+
+/* ============================================================
+   SCORING
+   ============================================================ */
+.scoring-section {
+  background: #FFFFFF;
+  padding: 80px 0;
+}
+
+.scoring-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E8E8;
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 2px 14px rgba(224,224,224,0.7);
+  margin-bottom: 20px;
+}
+
+.scoring-card-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.scoring-icon-box {
+  width: 48px;
+  height: 48px;
+  background: #FFF5E9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FF8C00;
+}
+.scoring-icon-box svg { width: 22px; height: 22px; }
+.scoring-icon-box.blue { background: #EEF2FF; color: #3B5FDB; }
+.scoring-icon-box.pink { background: #FFF0F3; color: #E84393; }
+
+.scoring-card-title {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.scoring-card-body {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.scoring-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: stretch;
+}
+.scoring-two-col .scoring-card {
+  height: 100%;
+}
+.scoring-two-col-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.scoring-pct-badge {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  line-height: 1.4;
+}
+.pct-orange { background: #FFF5E9; color: #CC6600; border: 1.5px solid #FFBE7A; }
+.pct-red    { background: #FDEAEA; color: #C0392B; border: 1.5px solid #E88B8B; }
+
+.formula-box {
+  background: #F9F9F9;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111111;
+  margin: 16px 0 20px 0;
+  border: 1px solid #EEEEEE;
+  line-height: 1.4;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.example-box {
+  background: #F9F9F9;
+  border-radius: 8px;
+  padding: 16px 20px;
+  border: 1px solid #EEEEEE;
+}
+.example-label {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+  display: block;
+  margin-bottom: 6px;
+}
+.example-text {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.55;
+  margin: 0;
+}
+.example-text strong { color: #000000; font-weight: 700; }
+
+.scoring-italic-note {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: #9CA3AF;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.dates-rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: stretch;
+}
+.dates-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E8E8;
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 2px 14px rgba(224,224,224,0.7);
+  height: 100%;
+}
+.date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #F3F4F6;
+}
+.date-row:last-child { border-bottom: none; padding-bottom: 0; }
+.date-row:first-child { padding-top: 0; }
+.date-label {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.4;
+}
+.date-badge {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 8px;
+  line-height: 1.4;
+}
+.date-badge-gray    { background: #374151; color: #FFFFFF; }
+.date-badge-outline { color: #FF8C00; border: 1.5px solid #FF8C00; border-radius: 50px; }
+
+.rules-list { list-style: none; padding: 0; margin: 0; }
+.rules-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.rules-list li:last-child { margin-bottom: 0; }
+.rules-list li svg {
+  width: 15px;
+  height: 15px;
+  color: #FF8C00;
+  stroke: #FF8C00;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   PRIZES
+   ============================================================ */
+.prizes-section {
+  background: #F5F5F5;
+  padding: 80px 0;
+}
+
+.prizes-badge {
+  display: inline-flex;
+  padding: 4px 16px;
+  border: 1px solid #FFBE7A;
+  background: #FFF5E9;
+  color: #CC6600;
+  border-radius: 50px;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.prizes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.prizes-row-2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 75%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: stretch;
+}
+
+.prize-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E8E8;
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 14px rgba(224,224,224,0.7);
+  height: 100%;
+}
+.prize-icon-box {
+  width: 48px;
+  height: 48px;
+  background: #FFF5E9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: #FF8C00;
+}
+.prize-icon-box svg { width: 22px; height: 22px; stroke: #FF8C00; }
+
+.prize-title {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.35;
+  margin: 0 0 8px 0;
+}
+.prize-subtitle {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-section {
+  background: #F5F5F5;
+  padding: 40px 0 80px 0;
+  text-align: center;
+}
+.cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cta-sparkle-box {
+  width: 68px;
+  height: 68px;
+  background: #FFF5E9;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: #FF8C00;
+}
+.cta-sparkle-box svg { width: 30px; height: 30px; }
+
+.cta-title {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.2;
+  margin: 0 0 14px 0;
+}
+.cta-subtitle {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.6;
+  margin: 0 auto 32px auto;
+  max-width: 580px;
+  width: 100%;
+  text-align: center;
+}
+.cta-note {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #9CA3AF;
+  margin: 28px 0 0 0;
+  line-height: 1.5;
+}
+.cta-note a { color: #FF8C00; text-decoration: none; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: #F3F4F6;
+  padding: 60px 0 40px 0;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.footer-contact-bar {
+  background: #2A2F7F;
+  border-radius: 20px;
+  padding: 36px 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+.footer-contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2A2F7F;
+  flex-shrink: 0;
+}
+.footer-contact-icon svg { width: 20px; height: 20px; }
+
+.footer-contact-label {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #A5B4FC;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.footer-contact-value {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.45;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1.3fr;
+  gap: 48px;
+  margin-bottom: 44px;
+}
+.footer-col-desc {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #4B5563;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.social-label {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #4B5563;
+}
+.social-icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #2A2F7F;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.social-icon-btn:hover { opacity: 0.8; }
+.social-icon-btn svg { width: 14px; height: 14px; }
+
+.footer-col-heading {
+  font-family: 'Gilmer', 'DM Sans', 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 18px 0;
+  line-height: 1.3;
+}
+.footer-links-list { list-style: none; padding: 0; margin: 0; }
+.footer-links-list li { margin-bottom: 12px; }
+.footer-links-list a {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #4B5563;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+.footer-links-list a:hover { color: #FF8C00; }
+
+.footer-bottom {
+  border-top: 1px solid #E5E7EB;
+  padding-top: 24px;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1380px) {
+  .container { width: 100%; padding: 0 40px; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 15px; }
+  .hero-title { font-size: 28px; }
+  .hero-subtitle { width: 100%; }
+  .cta-subtitle { width: 100%; }
+  .section-title { font-size: 22px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
+  .challenges-grid { grid-template-columns: 1fr; }
+  .challenge-row-2 { flex-direction: column; }
+  .challenge-row-2 .challenge-card { width: 100%; }
+  .scoring-two-col { grid-template-columns: 1fr; }
+  .examples-grid { grid-template-columns: 1fr; }
+  .dates-rules-grid { grid-template-columns: 1fr; }
+  .prizes-grid { grid-template-columns: repeat(2,1fr); }
+  .prizes-row-2 { grid-template-columns: 1fr; max-width: 100%; }
+  .footer-contact-bar { flex-direction: column; padding: 28px 20px; gap: 20px; }
+  .footer-main { grid-template-columns: 1fr; gap: 28px; }
+}

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillStorm Competitions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #FAFAF8;
+      --text-body: #6B6B6B;
+      --text-heading: #111111;
+      --border-card: #EBEBEB;
+      --amber: #F59E0B;
+      --blue: #2563EB;
+      --red: #DC2626;
+      --green: #065F46;
+      --green-bg: #ECFDF5;
+      --amber-bg: #FFFBEB;
+      --amber-text: #92400E;
+      --blue-bg: #EFF6FF;
+      --blue-text: #1E40AF;
+      --red-bg: #FEF2F2;
+      --red-text: #991B1B;
+      --gray-bg: #F3F4F6;
+      --gray-text: #374151;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-page); color: var(--text-body); line-height: 1.6; }
+    h1, h2, h3, h4 { color: var(--text-heading); font-weight: 800; line-height: 1.2; }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 90px 0; }
+    .text-center { text-align: center; }
+    
+    /* Layouts */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .flex-center { display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .flex-col { display: flex; flex-direction: column; }
+    
+    /* Components */
+    .card { background: #FFFFFF; border: 1px solid var(--border-card); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; }
+    
+    .pill { display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; width: fit-content; }
+    .pill-green { background: var(--green-bg); color: var(--green); }
+    .pill-amber { background: var(--amber-bg); color: var(--amber-text); }
+    .pill-blue { background: var(--blue-bg); color: var(--blue-text); }
+    .pill-red { background: var(--red-bg); color: var(--red-text); }
+    .pill-gray { background: var(--gray-bg); color: var(--gray-text); }
+    
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; transition: opacity 0.2s; text-decoration: none; border: none; }
+    .btn:hover { opacity: 0.9; }
+    .btn-primary-amber { background: var(--amber); color: #fff; }
+    .btn-primary-blue { background: var(--blue); color: #fff; }
+    .btn-primary-red { background: var(--red); color: #fff; }
+    .btn-outline { background: transparent; border: 1.5px solid #D1D5DB; color: #111; }
+    .btn-full { width: 100%; mt: 16px; }
+    
+    .icon-box { width: 40px; height: 40px; background: #FFF7ED; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--amber); margin-bottom: 16px; }
+    .icon-box.blue { background: var(--blue-bg); color: var(--blue); }
+    .icon-box.red { background: var(--red-bg); color: var(--red); }
+    
+    /* Spacing utility */
+    .mb-2 { margin-bottom: 8px; }
+    .mb-3 { margin-bottom: 12px; }
+    .mb-4 { margin-bottom: 16px; }
+    .mb-6 { margin-bottom: 24px; }
+    .mb-10 { margin-bottom: 40px; }
+    .mt-4 { margin-top: 16px; }
+    .mt-auto { margin-top: auto; }
+    
+    /* Stats Row */
+    .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin: 40px 0; }
+    .stat-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .stat-val { font-size: 24px; font-weight: 800; color: var(--text-heading); margin-bottom: 4px; }
+    .stat-label { font-size: 14px; color: var(--text-body); }
+    
+    /* Lists */
+    ul.check-list { list-style: none; }
+    ul.check-list li { position: relative; padding-left: 28px; margin-bottom: 12px; font-size: 15px; }
+    ul.check-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--text-heading); font-weight: bold; }
+    
+    /* Section Borders */
+    .section-divider { height: 1px; background: var(--border-card); margin: 0; border: none; }
+    
+    /* Specific Colors */
+    .text-amber { color: var(--amber); }
+    .text-blue { color: var(--blue); }
+    .text-red { color: var(--red); }
+    .text-muted { color: #9CA3AF; }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       SECTION 1: OPEN CHALLENGES (AMBER THEME)
+       ========================================== -->
+  <section class="section" id="open-challenges">
+    <div class="container text-center">
+      <div class="pill mb-6" style="border: 1px solid var(--amber); color: var(--amber); background: transparent; font-size: 13px;">✦ Quick Creative Challenges</div>
+      <h1 style="font-size: 48px; margin-bottom: 16px;">
+        Dive into the<br>
+        <span class="text-amber">Ultimate Learning Challenge</span>
+      </h1>
+      <p style="max-width: 600px; margin: 0 auto 32px; font-size: 16px;">
+        Join a vibrant global community in an exciting online event designed to spark creativity and build skills through fun, quick projects. In just 5 minutes, dive into a bite-sized lesson, then craft and share your creation.
+      </p>
+      <div class="flex-center mb-10">
+        <a href="#" class="btn btn-primary-amber">Enter a Challenge — £1</a>
+        <a href="#" class="btn btn-outline">Explore All Challenges</a>
+      </div>
+      
+      <div class="stats-row">
+        <div class="stat-item"><div class="icon-box">🏆</div><div class="stat-val">£1,000</div><div class="stat-label">Per Category</div></div>
+        <div class="stat-item"><div class="icon-box">🎟️</div><div class="stat-val">£1</div><div class="stat-label">Entry Fee</div></div>
+        <div class="stat-item"><div class="icon-box">⏱️</div><div class="stat-val">5 min</div><div class="stat-label">Quick Lessons</div></div>
+        <div class="stat-item"><div class="icon-box">🌍</div><div class="stat-val">All Ages</div><div class="stat-label">Open to Everyone</div></div>
+      </div>
+    </div>
+    
+    <div class="container" style="margin-top: 80px;">
+      <div class="text-center mb-10">
+        <h2 style="font-size: 32px; margin-bottom: 12px;">Explore the Challenges</h2>
+        <p>Each entry is just £1. Entries are evaluated on creativity, clarity, and fit to the prompt, with added points from community support.</p>
+      </div>
+      
+      <div class="grid-2">
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="pill pill-green mb-2">Ages 4–10</div>
+          <h3 class="mb-3 text-[20px]">Creative Storytelling Certificate</h3>
+          <p class="mb-4">Uncover the essentials of crafting compelling stories from start to finish.</p>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Your Task</div>
+            <p style="font-size: 15px; color: var(--text-heading);">Create a 1–2 minute video sharing your original tale using sketches, props, or pure narration.</p>
+          </div>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Earn</div>
+            <p style="font-size: 15px; font-weight: 600;" class="text-amber">Junior Storyteller Certificate</p>
+          </div>
+          <div class="mb-6">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div>
+            <p style="font-size: 15px;">Storytelling templates and access to our online imagination workshop series.</p>
+          </div>
+          <a href="#" class="btn btn-primary-amber btn-full mt-auto">Enter Challenge — £1</a>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="pill pill-amber mb-2">Ages 11+</div>
+          <h3 class="mb-3 text-[20px]">Global Oratory and Communication Certificate</h3>
+          <p class="mb-4">Master techniques for captivating audiences and delivering with poise.</p>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Your Task</div>
+            <p style="font-size: 15px; color: var(--text-heading);">Record a 1–2 minute video speech or pitch on a passion topic, like sustainability or personal interests.</p>
+          </div>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Earn</div>
+            <p style="font-size: 15px; font-weight: 600;" class="text-amber">Oratory Excellence Certificate</p>
+          </div>
+          <div class="mb-6">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div>
+            <p style="font-size: 15px;">Public speaking tipsheets and invites to virtual debate clubs.</p>
+          </div>
+          <a href="#" class="btn btn-primary-amber btn-full mt-auto">Enter Challenge — £1</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="pill pill-amber mb-2">Ages 11+</div>
+          <h3 class="mb-3 text-[20px]">Entrepreneurship and Innovation Accelerator</h3>
+          <p class="mb-4">Spot everyday challenges and devise innovative fixes.</p>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Your Task</div>
+            <p style="font-size: 15px; color: var(--text-heading);">Pitch your idea in a sharp 90-second video, outlining beneficiaries, mechanics, and standout features.</p>
+          </div>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Earn</div>
+            <p style="font-size: 15px; font-weight: 600;" class="text-amber">Emerging Innovator Credential</p>
+          </div>
+          <div class="mb-6">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div>
+            <p style="font-size: 15px;">Business plan templates and mentorship-matching opportunities.</p>
+          </div>
+          <a href="#" class="btn btn-primary-amber btn-full mt-auto">Enter Challenge — £1</a>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="card">
+          <div class="pill pill-gray mb-2">Ages 5+</div>
+          <h3 class="mb-3 text-[20px]">App Design and Logic Certification</h3>
+          <p class="mb-4">Brainstorm an app concept, draw key screens, and outline simple interactions.</p>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Your Task</div>
+            <p style="font-size: 15px; color: var(--text-heading);">Present in a 2-minute video — no code necessary.</p>
+          </div>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Earn</div>
+            <p style="font-size: 15px; font-weight: 600;" class="text-amber">Digital Design Certification</p>
+          </div>
+          <div class="mb-6">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div>
+            <p style="font-size: 15px;">UI/UX starter kits and logic puzzle resources.</p>
+          </div>
+          <a href="#" class="btn btn-primary-amber btn-full mt-auto">Enter Challenge — £1</a>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto; width: 100%;">
+          <div class="pill pill-green mb-2">Open to All Ages</div>
+          <h3 class="mb-3 text-[20px]">QuickChef Culinary Mastery Award</h3>
+          <p class="mb-4">Race the clock for 25 minutes to prepare a dish from scratch.</p>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Your Task</div>
+            <p style="font-size: 15px; color: var(--text-heading);">Capture the journey and edit into a 2-minute video sharing its personal story.</p>
+          </div>
+          <div class="mb-4">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Earn</div>
+            <p style="font-size: 15px; font-weight: 600;" class="text-amber">Culinary Speed Mastery Award</p>
+          </div>
+          <div class="mb-6">
+            <div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div>
+            <p style="font-size: 15px;">Recipe archives and virtual cooking class previews.</p>
+          </div>
+          <a href="#" class="btn btn-primary-amber btn-full mt-auto">Enter Challenge — £1</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scoring Subsection -->
+    <div class="container" style="margin-top: 100px;">
+      <div class="text-center mb-10">
+        <h2 style="font-size: 32px; margin-bottom: 12px;">How Scoring Works</h2>
+        <p>Merit-first scoring with community support</p>
+      </div>
+      
+      <div class="card mb-6">
+        <div class="flex items-center gap-4 mb-4" style="display: flex; gap: 16px; align-items: center;">
+          <div class="icon-box" style="margin: 0;">❤️</div>
+          <h3 style="font-size: 20px;">Understanding Lift Support</h3>
+        </div>
+        <p>After approval, you'll get a personal shareable link and QR code. Supporters can send a £1 Lift to cheer you on, adding +1 to your community score per Lift. Your core project quality drives 65% of the score, making Lifts a helpful but secondary element.</p>
+      </div>
+      
+      <div class="grid-2 mb-6">
+        <div class="card">
+          <div class="pill pill-amber mb-4" style="border: 1px solid var(--amber);">Project Merit — 65%</div>
+          <p>Assessed for overall quality, originality, clarity, and relevance.</p>
+        </div>
+        <div class="card">
+          <div class="pill pill-red mb-4" style="border: 1px solid var(--red);">Community Support — 35%</div>
+          <p>Your Lifts, normalized against the category's top count for equity.</p>
+        </div>
+      </div>
+      
+      <div class="card mb-6" style="background: #111; color: #fff; border: none;">
+        <h3 style="color: #fff; margin-bottom: 16px;">Score Calculation</h3>
+        <p style="font-family: monospace; font-size: 15px; color: #F59E0B; margin-bottom: 16px;">Final Score = (Merit Score × 0.65) + (Normalized Lifts × 0.35)</p>
+        <p style="color: #A1A1AA; font-size: 14px; margin-bottom: 8px;">Example A: 90/100 merit with 850 Lifts (category max: 1,500) ≈ 79 points</p>
+        <p style="color: #A1A1AA; font-size: 14px; margin-bottom: 16px;">Example B: 84/100 with max Lifts ≈ 89.6 points</p>
+        <p style="font-style: italic; color: #fff;">Emphasizing strong ideas over sheer popularity!</p>
+      </div>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="mb-4">Purpose of the £1 Entry Fee</h3>
+          <p>This small fee verifies your submission, covers prize pools and certificates, and maintains a level playing field. It never influences your score.</p>
+        </div>
+        <div class="flex-col" style="gap: 20px;">
+          <div class="card p-0" style="padding: 16px 24px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <strong>Registration Opens</strong><span>7 November</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <strong>Challenge Ends</strong><span class="pill pill-amber">25 April 2026</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="mb-4">Essential Rules</h3>
+            <ul class="check-list">
+              <li>All original work — no copies or AI creations</li>
+              <li>Submit via YouTube or Google Drive (up to 200 MB)</li>
+              <li>Video lengths: 30 seconds to 3 minutes, based on category</li>
+              <li>One entry per category per person (multi-category entries welcome)</li>
+              <li>Under-18s must have parent/guardian approval</li>
+              <li>Shown in £; local currencies may vary in promotions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Prizes Subsection -->
+    <div class="container" style="margin-top: 100px;">
+      <div class="text-center mb-10">
+        <div class="pill pill-gray mb-4">Real Rewards</div>
+        <h2 style="font-size: 32px; margin-bottom: 12px;">Prizes and Perks</h2>
+        <p>Recognition, cash prizes, and career-boosting opportunities</p>
+      </div>
+      
+      <div class="grid-4 mb-6">
+        <div class="card text-center"><div class="icon-box mx-auto" style="margin: 0 auto 16px;">💰</div><h4 class="mb-2">£1,000 Cash Prize</h4><p style="font-size: 14px;">For each category champion</p></div>
+        <div class="card text-center"><div class="icon-box mx-auto" style="margin: 0 auto 16px;">🏆</div><h4 class="mb-2">Engraved Trophy</h4><p style="font-size: 14px;">And framed certificate</p></div>
+        <div class="card text-center"><div class="icon-box mx-auto" style="margin: 0 auto 16px;">📚</div><h4 class="mb-2">Flagship Course Access</h4><p style="font-size: 14px;">Complimentary for top 100 entries</p></div>
+        <div class="card text-center"><div class="icon-box mx-auto" style="margin: 0 auto 16px;">🎓</div><h4 class="mb-2">Scholarship Pathways</h4><p style="font-size: 14px;">Shared with partner universities</p></div>
+      </div>
+      <div class="grid-3 mb-16">
+        <div class="card text-center"><div class="icon-box mx-auto" style="margin: 0 auto 16px;">🏢</div><h4 class="mb-2">Industry Immersions</h4><p style="font-size: 14px;">Virtual or on-site visits with leaders</p></div>
+        <div class="card text-center"><div class="icon-box mx-auto" style="margin: 0 auto 16px;">📜</div><h4 class="mb-2">Digital Certificates</h4><p style="font-size: 14px;">For every valid entry</p></div>
+        <div class="card text-center"><div class="icon-box mx-auto" style="margin: 0 auto 16px;">🤝</div><h4 class="mb-2">Sponsorship Pathways</h4><p style="font-size: 14px;">Top concepts connected to mentors</p></div>
+      </div>
+      
+      <div class="card text-center" style="background: #FFFBEB; border-color: var(--amber);">
+        <h2 class="mb-4">Your Adventure Starts Here!</h2>
+        <p class="mb-6" style="max-width: 600px; margin: 0 auto 24px;">Sign up now to gain fresh skills, showcase your talent, and compete for £1,000 prizes, certifications, and career-boosting connections.</p>
+        <div class="flex-center mb-6">
+          <a href="#" class="btn btn-primary-amber">Enter a Challenge — £1</a>
+          <a href="#" class="btn btn-outline" style="border-color: var(--amber); color: var(--amber-text);">Explore All Challenges</a>
+        </div>
+        <p style="font-size: 12px; color: var(--text-body);">Organised by In My Academy Ltd (UK) — empowering the next generation through project-based global learning.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ==========================================
+       SECTION 2: SCHOOLS COMPETITION (BLUE/RED)
+       ========================================== -->
+  <section class="section" id="schools-competition">
+    <div class="container text-center">
+      <div class="pill mb-6" style="border: 1px solid var(--blue); color: var(--blue); background: transparent; font-size: 13px;">🏫 Team-Based Competition</div>
+      <h1 style="font-size: 48px; margin-bottom: 16px;">
+        Inspire Your Students.<br>
+        <span class="text-blue">Represent Your School.</span><br>
+        Compete Globally.
+      </h1>
+      <p style="max-width: 600px; margin: 0 auto 32px; font-size: 16px;">
+        Join hundreds of schools worldwide in a record-breaking educational event built to inspire tomorrow's leaders. Teams take on story-driven challenges that feel like real adventures.
+      </p>
+      <div class="flex-center mb-10">
+        <a href="#" class="btn btn-primary-blue">Register Your School</a>
+        <a href="#" class="btn btn-outline">Download Teacher Kit</a>
+      </div>
+      
+      <div class="stats-row">
+        <div class="stat-item"><div class="icon-box blue">🏆</div><div class="stat-val">£30,000</div><div class="stat-label">Prize Pool</div></div>
+        <div class="stat-item"><div class="icon-box blue">👥</div><div class="stat-val">5</div><div class="stat-label">Students per Team</div></div>
+        <div class="stat-item"><div class="icon-box blue">📊</div><div class="stat-val">3</div><div class="stat-label">Age Categories</div></div>
+        <div class="stat-item"><div class="icon-box blue">🏫</div><div class="stat-val">100+</div><div class="stat-label">Schools Joining</div></div>
+      </div>
+    </div>
+    
+    <div class="container" style="margin-top: 80px;">
+      <div class="text-center mb-10">
+        <h2 style="font-size: 32px; margin-bottom: 12px;">Competition Format</h2>
+        <p>Two thrilling phases designed to challenge and inspire</p>
+      </div>
+      
+      <h3 class="text-center mb-6">Age Categories & Story Tracks</h3>
+      
+      <div class="grid-3 mb-10">
+        <div class="card">
+          <div class="pill pill-green mb-4">10 and under</div>
+          <h3 class="mb-1">Trailblazers</h3>
+          <p class="text-red mb-3" style="font-weight: 600;">Quest for the Crown of Light</p>
+          <p>Fantasy problem-solving in Aurelia — ethical choices, teamwork drills, and imaginative storytelling.</p>
+        </div>
+        <div class="card">
+          <div class="pill pill-blue mb-4">11–14</div>
+          <h3 class="mb-1">Visioneers</h3>
+          <p class="text-blue mb-3" style="font-weight: 600;">Crisis City — Rebuilding the Future</p>
+          <p>Rebuild a city's services: justice, tech, economy, public health and governance.</p>
+        </div>
+        <div class="card">
+          <div class="pill pill-amber mb-4">15–19</div>
+          <h3 class="mb-1">Strategists</h3>
+          <p class="text-amber mb-3" style="font-weight: 600;">The Trial of Nations</p>
+          <p>Diplomacy, law and policy in action — debates, mock treaties, simulated courts and summits.</p>
+        </div>
+      </div>
+      
+      <div class="grid-2">
+        <div class="card">
+          <div class="flex items-center gap-4 mb-4" style="display: flex; gap: 16px; align-items: center;">
+            <div class="icon-box blue" style="margin: 0;">🌐</div>
+            <div class="pill pill-gray" style="border: 1px solid var(--text-heading); background: #fff; color: var(--text-heading);">Phase 1</div>
+          </div>
+          <h3 class="mb-4">Online Immersive Story Simulations</h3>
+          <p class="mb-6">Teams progress through five chapters tailored to their age group. After each chapter, submit a creative task (poster, slides, video, brief or report).</p>
+          <h4 class="mb-3 text-red">Judging Criteria:</h4>
+          <ul class="check-list" style="color: var(--red);">
+            <li>Creativity & Originality</li>
+            <li>Clarity of Communication</li>
+            <li>Teamwork & Collaboration</li>
+            <li>Leadership Demonstration</li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-center gap-4 mb-4" style="display: flex; gap: 16px; align-items: center;">
+            <div class="icon-box red" style="margin: 0;">📍</div>
+            <div class="pill pill-gray" style="border: 1px solid var(--text-heading); background: #fff; color: var(--text-heading);">Phase 2</div>
+          </div>
+          <h3 class="mb-4">Offline Grand Finale (2-Day Knockout)</h3>
+          <p class="mb-6">Top teams from Phase 1 meet in person for two days of live challenges at a regional hub.</p>
+          <h4 class="mb-2 text-red">Day 1:</h4>
+          <p class="mb-6">Role-play missions and on-the-spot tasks (knockout rounds)</p>
+          <h4 class="mb-4">Day 2 — Five Championship Rounds:</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <span class="pill pill-gray">Business Simulations</span>
+            <span class="pill pill-gray">Courtroom Trials</span>
+            <span class="pill pill-gray">Political Summits</span>
+            <span class="pill pill-gray">Innovation Pitches</span>
+            <span class="pill pill-gray">Surprise Live Challenge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Registration Fees -->
+    <div class="container" style="margin-top: 100px;">
+      <div class="text-center mb-10">
+        <h2 style="font-size: 32px; margin-bottom: 12px;">Registration & Team Fees</h2>
+        <p>Flexible options for every school</p>
+      </div>
+      
+      <div class="grid-3 mb-10" style="align-items: flex-end;">
+        <div class="card text-center" style="height: 100%;">
+          <h3 class="mb-2">Single Team</h3>
+          <h2 style="font-size: 40px; margin-bottom: 4px;">£50</h2>
+          <p class="text-muted mb-6">1 team in any category</p>
+          <ul class="check-list text-left mb-6" style="margin-top: auto;">
+            <li>Up to 5 students</li>
+            <li>Premium course access</li>
+            <li>Digital certificates for all</li>
+            <li>Competition kit & handbook</li>
+          </ul>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Select Plan</a>
+        </div>
+        
+        <div class="card text-center" style="border: 2px solid var(--red); position: relative; height: 105%;">
+          <div class="pill pill-red" style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--red); color: #fff;">MOST POPULAR</div>
+          <h3 class="mb-2 mt-4">Full Set</h3>
+          <h2 style="font-size: 40px; margin-bottom: 4px;">£150</h2>
+          <p class="text-muted mb-6">1 team in each of 3 categories</p>
+          <ul class="check-list text-left mb-6" style="margin-top: auto;">
+            <li>Up to 15 students total</li>
+            <li>Premium course access</li>
+            <li>Digital certificates for all</li>
+            <li>Competition kit & handbook</li>
+            <li>Teacher mentorship tools</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#" class="btn btn-primary-red btn-full mt-auto">Select Plan</a>
+        </div>
+        
+        <div class="card text-center" style="height: 100%;">
+          <h3 class="mb-2">Additional Team</h3>
+          <h2 style="font-size: 40px; margin-bottom: 4px;">+£50</h2>
+          <p class="text-muted mb-6">Per extra team in any category</p>
+          <ul class="check-list text-left mb-6" style="margin-top: auto;">
+            <li>Up to 5 additional students</li>
+            <li>Same benefits as above</li>
+            <li>Deeper school participation</li>
+          </ul>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Select Plan</a>
+        </div>
+      </div>
+      
+      <div class="card bg-gray-50">
+        <h3 class="mb-6">What Schools Receive</h3>
+        <div class="grid-2">
+          <ul class="check-list">
+            <li>Access to premium In My Academy courses (project-based)</li>
+            <li>Teacher mentorship tools and session guides</li>
+            <li>Live leaderboards to track progress in real time</li>
+          </ul>
+          <ul class="check-list">
+            <li>Digital competition kits: handbooks, posters, rubrics, templates</li>
+            <li>Global shout-outs and features for winning schools</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scoring -->
+    <div class="container" style="margin-top: 100px;">
+      <div class="text-center mb-10">
+        <h2 style="font-size: 32px; margin-bottom: 12px;">Scoring System</h2>
+        <p>Merit-first scoring with community support</p>
+      </div>
+      
+      <div class="card mb-6">
+        <h3 class="mb-3">Lift Support</h3>
+        <p class="mb-2">After your Phase 1 submission is approved, you'll receive a unique Lift link and QR code. Families and friends can Send a Lift (£1) to support your project — each Lift adds +1 to your Community Support score.</p>
+        <p><strong>Project quality still matters most.</strong></p>
+      </div>
+      
+      <div class="grid-2 mb-6">
+        <div class="card">
+          <div class="pill pill-amber mb-4" style="border: 1px solid var(--amber);">Project Merit — 65%</div>
+          <p>Creativity & originality / Clarity of presentation / Alignment with the task / Overall quality</p>
+        </div>
+        <div class="card">
+          <div class="pill pill-red mb-4" style="border: 1px solid var(--red);">Community Support — 35%</div>
+          <p>Your Lifts, normalised against the top count in your category for equity.</p>
+        </div>
+      </div>
+      
+      <div class="card mb-10" style="background: #111; color: #fff; border: none;">
+        <p style="font-family: monospace; font-size: 15px; color: #DC2626; margin-bottom: 16px;">Final Score = (Merit × 0.65) + (Normalised Lifts × 0.35)</p>
+        <p style="font-style: italic; color: #fff;">Strong skills can beat popularity!</p>
+      </div>
+      
+      <div class="card mb-6">
+        <div class="pill pill-blue mb-4">Total Pool: £30,000</div>
+        <h3 class="mb-4">Prizes & Opportunities</h3>
+        <div class="grid-3 mb-6">
+          <p><strong>Cash Awards</strong><br>For Champions and top runners-up</p>
+          <p><strong>Custom Trophies</strong><br>And framed certificates</p>
+          <p><strong>Premium Course Access</strong><br>For top teams</p>
+          <p><strong>Scholarship Pathways</strong><br>Via partner schools and programs</p>
+          <p><strong>Industry Visits</strong><br>Virtual or in-person experiences</p>
+          <p><strong>Sponsorship Introductions</strong><br>For outstanding teams</p>
+          <p><strong>Digital Certificates</strong><br>For all approved participants</p>
+        </div>
+        <p style="font-size: 13px; font-style: italic; color: var(--text-muted);">Exact allocation announced with each finalist roster to reflect participation and regions.</p>
+      </div>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="mb-4">Key Dates</h3>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <strong>Registration Opens</strong><span>7 November</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <strong>Grand Finale</strong><span class="pill pill-red">April 2026</span>
+          </div>
+          <p style="font-size: 13px;" class="text-muted">Exact dates and venue announced later</p>
+        </div>
+        <div class="card">
+          <h3 class="mb-4">Simple Rules</h3>
+          <ul class="check-list">
+            <li>Everything must be original — no copying or AI-generated content</li>
+            <li>Submit via YouTube or Google Drive (max 200 MB)</li>
+            <li>Entry formats: videos (30 sec–3 min) and digital files as requested per chapter</li>
+            <li>One team per category per school (enter all three if you wish)</li>
+            <li>Under-18s require parent/guardian consent</li>
+            <li>Fees shown in £ (local currencies only in regional marketing)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card text-center mt-10" style="background: var(--blue-bg); border-color: var(--blue);">
+        <h2 class="mb-4">Ready to Rally Your School?</h2>
+        <p class="mb-6" style="max-width: 600px; margin: 0 auto 24px;">Register your teams, download your teacher kit, and unleash your students' best work. Let's make history together — and give your school the spotlight it deserves.</p>
+        <div class="flex-center mb-6">
+          <a href="#" class="btn btn-primary-blue">Register Your School</a>
+          <a href="#" class="btn btn-outline" style="border-color: var(--blue); color: var(--blue-text);">Download Teacher Kit</a>
+        </div>
+        <p style="font-size: 12px; color: var(--text-body);">Organised by In My Academy Ltd (UK) — empowering the next generation through project-based global learning.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ==========================================
+       SECTION 3: MASTERY BATTLES (RED/DARK)
+       ========================================== -->
+  <section class="section" id="mastery-battles">
+    <div class="container text-center">
+      <div class="pill mb-6" style="border: 1px solid var(--red); color: var(--red); background: transparent; font-size: 13px;">✗ Individual Competition</div>
+      <h1 style="font-size: 48px; margin-bottom: 16px;">
+        Take the Stage.<br>
+        <span class="text-red">Rise</span> as a <span class="text-red">Global Champion.</span>
+      </h1>
+      <p style="max-width: 600px; margin: 0 auto 32px; font-size: 16px;">
+        Step into Global Mastery Battles, where solo competitors aged 7 to 19 showcase their skills in elite, career-focused challenges. Choose your track, prove your mastery, and rise as a Global Champion in your chosen field.
+      </p>
+      <div class="flex-center mb-10">
+        <a href="#" class="btn btn-primary-red">Choose Your Track</a>
+        <a href="#" class="btn btn-outline">View All Tracks</a>
+      </div>
+      
+      <div class="stats-row">
+        <div class="stat-item"><div class="icon-box red">🏆</div><div class="stat-val">£20,000</div><div class="stat-label">Prize Pool</div></div>
+        <div class="stat-item"><div class="icon-box red">👤</div><div class="stat-val">Solo</div><div class="stat-label">Competition Style</div></div>
+        <div class="stat-item"><div class="icon-box red">🎯</div><div class="stat-val">9</div><div class="stat-label">Pro Tracks</div></div>
+        <div class="stat-item"><div class="icon-box red">🎓</div><div class="stat-val">7–19</div><div class="stat-label">Ages</div></div>
+      </div>
+    </div>
+    
+    <div class="container" style="margin-top: 80px;">
+      <div class="text-center mb-10">
+        <h2 style="font-size: 32px; margin-bottom: 12px;">Choose Your Mastery Battle Track</h2>
+        <p>Select one or more professional-grade tracks aligned with your career interests. Each costs £25 to enter.</p>
+        <div class="flex-center mt-6">
+          <span class="pill pill-green">Trailblazers (10 and under)</span>
+          <span class="pill pill-blue">Visioneers (11–14)</span>
+          <span class="pill pill-amber">Strategists (15–19)</span>
+        </div>
+      </div>
+      
+      <div class="grid-3 mb-4">
+        <!-- T1 -->
+        <div class="card">
+          <h3 class="mb-3 text-[20px]">Diplomatic Policy Leadership</h3>
+          <p class="mb-4">Dive into governance, diplomacy, and global relations — from public policy and civic leadership to persuasive debate and campaign strategy.</p>
+          <div class="mb-3"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Phase 1</span> Submit a policy pitch or debate video for shortlisting</div>
+          <div class="mb-4"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Finale</span> Shine in live negotiations</div>
+          <div class="mb-6"><div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div><p style="font-size: 14px;">Policy templates and access to virtual youth summits</p></div>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Enter Track — £25</a>
+        </div>
+        <!-- T2 -->
+        <div class="card">
+          <h3 class="mb-3 text-[20px]">Legal Advocacy Professional</h3>
+          <p class="mb-4">Understand justice systems, legal research, case writing, and courtroom communication.</p>
+          <div class="mb-3"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Phase 1</span> Submit a mock-trial or advocacy video</div>
+          <div class="mb-4"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Finale</span> Face live legal argument sessions</div>
+          <div class="mb-6"><div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div><p style="font-size: 14px;">Legal writing guides and virtual courtroom workshops</p></div>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Enter Track — £25</a>
+        </div>
+        <!-- T3 -->
+        <div class="card">
+          <h3 class="mb-3 text-[20px]">Advanced Research Publication</h3>
+          <p class="mb-4">Apply real-world science and engineering skills — from research design to data storytelling.</p>
+          <div class="mb-3"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Phase 1</span> Submit a research abstract or visualisation</div>
+          <div class="mb-4"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Finale</span> Defend your findings live</div>
+          <div class="mb-6"><div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div><p style="font-size: 14px;">Research toolkits and academic publishing resources</p></div>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Enter Track — £25</a>
+        </div>
+        <!-- T4 -->
+        <div class="card">
+          <h3 class="mb-3 text-[20px]">Digital Media Strategy</h3>
+          <p class="mb-4">Create high-impact media content — mastering storytelling, editing, branding, and campaign strategy.</p>
+          <div class="mb-3"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Phase 1</span> Submit a digital media piece or article</div>
+          <div class="mb-4"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Finale</span> Present your strategy live</div>
+          <div class="mb-6"><div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div><p style="font-size: 14px;">Media starter packs and virtual journalism labs</p></div>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Enter Track — £25</a>
+        </div>
+        <!-- T5 -->
+        <div class="card">
+          <h3 class="mb-3 text-[20px]">Entrepreneurial Visionary Accelerator</h3>
+          <p class="mb-4">Turn ideas into ventures — explore innovation, market research, finance basics, and pitching mastery.</p>
+          <div class="mb-3"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Phase 1</span> Submit a business pitch video</div>
+          <div class="mb-4"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Finale</span> Pitch live to industry guests</div>
+          <div class="mb-6"><div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div><p style="font-size: 14px;">Business plan templates and mentorship opportunities</p></div>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Enter Track — £25</a>
+        </div>
+        <!-- T6 -->
+        <div class="card">
+          <h3 class="mb-3 text-[20px]">Executive Project Management</h3>
+          <p class="mb-4">Master leadership, time management, risk handling, and execution excellence.</p>
+          <div class="mb-3"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Phase 1</span> Submit a project plan or simulation</div>
+          <div class="mb-4"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Finale</span> Perform live project briefs</div>
+          <div class="mb-6"><div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div><p style="font-size: 14px;">Leadership frameworks and project templates</p></div>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Enter Track — £25</a>
+        </div>
+        <!-- T7 -->
+        <div class="card">
+          <h3 class="mb-3 text-[20px]">Global Communication Mastery</h3>
+          <p class="mb-4">Develop confident communication through speech, debate, and persuasive storytelling.</p>
+          <div class="mb-3"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Phase 1</span> Submit a speech video</div>
+          <div class="mb-4"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Finale</span> Perform live before a global audience</div>
+          <div class="mb-6"><div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div><p style="font-size: 14px;">Public speaking kits and debate club access</p></div>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Enter Track — £25</a>
+        </div>
+        <!-- T8 -->
+        <div class="card">
+          <h3 class="mb-3 text-[20px]">Digital Systems Architecture</h3>
+          <p class="mb-4">Design the future — from coding logic and debugging to web and game concepts.</p>
+          <div class="mb-3"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Phase 1</span> Submit a digital demo or design prototype</div>
+          <div class="mb-4"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Finale</span> Showcase live</div>
+          <div class="mb-6"><div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div><p style="font-size: 14px;">Tech design resources and digital innovation toolkits</p></div>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Enter Track — £25</a>
+        </div>
+        <!-- T9 -->
+        <div class="card">
+          <h3 class="mb-3 text-[20px]">Investment Banking Elite</h3>
+          <p class="mb-4">Understand global finance — investment banking, markets, M&A, ethics, and modelling.</p>
+          <div class="mb-3"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Phase 1</span> Submit a finance strategy video</div>
+          <div class="mb-4"><span class="pill pill-gray mr-2" style="margin-right: 8px;">Finale</span> Analyse live case studies</div>
+          <div class="mb-6"><div class="text-muted" style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Extras</div><p style="font-size: 14px;">Finance model templates and virtual bank simulations</p></div>
+          <a href="#" class="btn btn-outline btn-full mt-auto">Enter Track — £25</a>
+        </div>
+      </div>
+      <p class="text-center text-muted" style="font-size: 14px;">Earn certification upon approval for each track you complete.</p>
+    </div>
+    
+    <!-- Perks, Format, Dates -->
+    <div class="container" style="margin-top: 100px;">
+      <div class="text-center mb-10">
+        <div class="pill pill-amber mb-4">Total Pool: £20,000</div>
+        <h2 style="font-size: 32px; margin-bottom: 12px;">Prizes & Perks</h2>
+        <p>Recognition, rewards, and career-boosting opportunities</p>
+      </div>
+      
+      <div class="grid-4 mb-6">
+        <div class="card text-center"><div class="icon-box red mx-auto" style="margin: 0 auto 16px;">💰</div><h4 class="mb-2">£10,000 Prize Pool</h4><p style="font-size: 14px;">Shared across tracks and age categories</p></div>
+        <div class="card text-center"><div class="icon-box red mx-auto" style="margin: 0 auto 16px;">🏆</div><h4 class="mb-2">Cash + Trophy + Certificate</h4><p style="font-size: 14px;">For each Champion</p></div>
+        <div class="card text-center"><div class="icon-box red mx-auto" style="margin: 0 auto 16px;">📚</div><h4 class="mb-2">Premium Course Access</h4><p style="font-size: 14px;">For top finalists</p></div>
+        <div class="card text-center"><div class="icon-box red mx-auto" style="margin: 0 auto 16px;">🎓</div><h4 class="mb-2">Scholarship Pathways</h4><p style="font-size: 14px;">Via partner programs and universities</p></div>
+      </div>
+      <div class="grid-3 mb-16">
+        <div class="card text-center"><div class="icon-box red mx-auto" style="margin: 0 auto 16px;">🏢</div><h4 class="mb-2">Industry Immersions</h4><p style="font-size: 14px;">In law, media, tech, business, and finance</p></div>
+        <div class="card text-center"><div class="icon-box red mx-auto" style="margin: 0 auto 16px;">📜</div><h4 class="mb-2">Digital Certificates</h4><p style="font-size: 14px;">For all approved entries</p></div>
+        <div class="card text-center"><div class="icon-box red mx-auto" style="margin: 0 auto 16px;">🤝</div><h4 class="mb-2">Sponsorship Introductions</h4><p style="font-size: 14px;">Linking top talents with mentors and investors</p></div>
+      </div>
+      
+      <div class="text-center mb-10">
+        <h2 style="font-size: 32px; margin-bottom: 12px;">Competition Format</h2>
+        <p>Two phases: online shortlisting and live knockout Grand Finale</p>
+      </div>
+      
+      <div class="grid-2 mb-6">
+        <div class="card">
+          <h3 class="mb-4">Online Shortlisting</h3>
+          <p class="mb-4">Submit your task (video, document, or project) as per the brief. Entries judged for creativity, clarity, and relevance.</p>
+          <p class="text-red font-semibold">Top 48 per track (16 per age group) advance to the Grand Finale</p>
+        </div>
+        <div class="card">
+          <div class="flex items-center gap-4 mb-4" style="display: flex; gap: 16px; align-items: center;">
+            <div class="icon-box red" style="margin: 0;">📍</div>
+            <h3 style="margin: 0;">Offline Grand Finale</h3>
+          </div>
+          <p class="mb-4">Location announced (regional hubs for accessibility).</p>
+          <ul class="check-list mb-4">
+            <li>1-vs-1 live knockout battles — 5–7 minutes each</li>
+            <li>Industry and academic expert judges</li>
+            <li>Judged on clarity, confidence, creativity, and skill</li>
+          </ul>
+          <p><strong>Progression:</strong> 16 → 8 → 4 → 2 → 1 <span class="pill pill-amber" style="margin-left: 8px;">Champion</span></p>
+          <p style="font-size: 12px;" class="text-muted mt-2">Per track per age category</p>
+        </div>
+      </div>
+      
+      <div class="card mb-6" style="display: flex; flex-direction: row; align-items: center; gap: 24px;">
+        <div class="pill pill-red" style="font-size: 18px; padding: 12px 20px;">£25</div>
+        <div>
+          <h3 class="mb-2">Purpose of the Entry Fee</h3>
+          <p>Your entry fee guarantees verified participation, funds the £10,000 global prize pool, and covers certification and logistics. It never affects your competition score.</p>
+        </div>
+      </div>
+      
+      <div class="grid-2 mb-10">
+        <div class="card">
+          <h3 class="mb-4">Key Dates</h3>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <strong>Registration Opened</strong><span>Now Open</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <strong>Competition Ends</strong><span class="pill pill-red">30th December 2026</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="mb-4">Rules</h3>
+          <ul class="check-list">
+            <li>Work must be original — no AI or copied submissions</li>
+            <li>Submit via YouTube or Google Drive (max 200 MB)</li>
+            <li>Video length: 30 seconds – 3 minutes (depends on track)</li>
+            <li>One entry per track (multi-track participation allowed)</li>
+            <li>Under-18s need parent/guardian consent</li>
+            <li>Fees shown in £; local promotions may display equivalents</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card text-center" style="background: var(--red-bg); border-color: var(--red);">
+        <h2 class="mb-4">Ready to Rise?</h2>
+        <p class="mb-6" style="max-width: 600px; margin: 0 auto 24px;">Select your track, unleash your skills, and become a Global Mastery Champion.</p>
+        <div class="flex-center mb-6">
+          <a href="#" class="btn btn-primary-red">Choose Your Track</a>
+          <a href="#" class="btn btn-outline" style="border-color: var(--red); color: var(--red-text);">View All Tracks</a>
+        </div>
+        <p style="font-size: 12px; color: var(--text-body);">Organised by In My Academy Ltd (UK) — empowering the next generation through global, project-based learning.</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

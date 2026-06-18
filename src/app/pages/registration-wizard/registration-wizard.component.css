@@ -1,0 +1,7 @@
+/* Custom style rules for Registration Wizard Component */
+a:hover {
+  color: #D20A00 !important;
+}
+button:hover {
+  opacity: 0.9;
+}
