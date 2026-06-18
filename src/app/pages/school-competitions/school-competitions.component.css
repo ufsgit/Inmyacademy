@@ -1,1 +1,41 @@
-/* School Competitions specific styles */
+/* Pricing Cards */
+.pricing-card {
+  position: relative;
+  background: #F5F5F5;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.pricing-card.active {
+  background: #FFFFFF;
+  border-color: #E60000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.plan-btn {
+  width: 100%;
+  background: #FFFFFF;
+  color: #000000;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 40px;
+  text-align: center;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.plan-btn.active {
+  background: #E60000;
+  color: #FFFFFF;
+}

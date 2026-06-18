@@ -8,5 +8,6 @@ export const routes: Routes = [
   { path: 'skillstorm/mastery-battles', loadComponent: () => import('./pages/mastery-battles/mastery-battles.component').then(m => m.MasteryBattlesComponent) },
   { path: 'skillstorm/challenges/:slug', loadComponent: () => import('./pages/challenge-details/challenge-details.component').then(m => m.ChallengeDetailsComponent) },
   { path: 'login', loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent) },
-  { path: 'skillstorm/school-dashboard', loadComponent: () => import('./pages/school-dashboard/school-dashboard.component').then(m => m.SchoolDashboardComponent) }
+  { path: 'skillstorm/school-dashboard', loadComponent: () => import('./pages/school-dashboard/school-dashboard.component').then(m => m.SchoolDashboardComponent) },
+  { path: 'skillstorm/open-challenges-dashboard', loadComponent: () => import('./pages/open-challenges-dashboard/open-challenges-dashboard.component').then(m => m.OpenChallengesDashboardComponent) }
 ];

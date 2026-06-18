@@ -12,88 +12,84 @@
   <section style="background:#FFFFFF; padding:64px 24px 56px; text-align:center;">
 
     <!-- Badge pill -->
-    <div style="display:inline-flex; align-items:center; gap:8px; border:1.5px solid #E60000; border-radius:50px; padding:7px 20px; margin-bottom:28px;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E60000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/>
-        <line x1="13" y1="19" x2="15" y2="21"/>
-        <line x1="16" y1="16" x2="20" y2="20"/>
-        <polyline points="9.5 6.5 11 5 21 5 21 15 19.5 13.5"/>
-        <line x1="8" y1="8" x2="4" y2="4"/>
-        <line x1="5" y1="11" x2="3" y2="9"/>
+    <div style="display:inline-flex; align-items:center; gap:6px; border:1px solid #E60000; border-radius:50px; padding:4px 16px; margin-bottom:20px;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E60000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 6v12" />
+        <path d="M17.196 9 6.804 15" />
+        <path d="M6.804 9l10.392 6" />
       </svg>
-      <span style="font-size:13px; font-weight:700; color:#E60000; letter-spacing:0.03em;">Individual Competition</span>
+      <span style="font-size:12px; font-weight:600; color:#E60000; letter-spacing:0.02em;">Individual Competition</span>
     </div>
 
     <!-- Heading -->
-    <h1 style="font-size:40px; font-weight:800; color:#000000; line-height:1.2; margin:0 0 20px 0;">
+    <h1 style="font-size:46px; font-weight:800; color:#000000; line-height:1.2; margin:0 0 20px 0;">
       Take the Stage.<br>
       <span style="color:#E60000;">Rise as a Global Champion.</span>
     </h1>
 
     <!-- Description -->
-    <p style="font-size:16px; color:#555555; line-height:1.7; margin:0 auto 40px; max-width:660px;">
+    <p style="font-size:15px; color:#555555; line-height:1.7; margin:0 auto 48px; max-width:680px;">
       Step into Global Mastery Battles, where <strong style="color:#E60000;">solo competitors aged 7 to 19</strong> showcase their skills in elite, career-focused challenges. Choose your track, prove your mastery, and rise as a Global Champion in your chosen field.
     </p>
 
     <!-- Buttons -->
-    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:56px;">
-      <button (click)="scrollToTracks()" style="background:#E60000; color:#FFFFFF; border:none; border-radius:8px; padding:14px 32px; font-size:15px; font-weight:700; cursor:pointer; font-family:'Poppins','Inter',sans-serif; transition:all 0.3s ease;" onmouseover="this.style.background='#C40000'" onmouseout="this.style.background='#E60000'">Choose Your Track →</button>
-      <button (click)="scrollToTracks()" style="background:#FFFFFF; color:#000000; border:2px solid #000000; border-radius:8px; padding:14px 32px; font-size:15px; font-weight:700; cursor:pointer; font-family:'Poppins','Inter',sans-serif; transition:all 0.3s ease;">View All Tracks</button>
+    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:80px;">
+      <button (click)="scrollToTracks()" style="background:#E60000; color:#FFFFFF; border:none; border-radius:8px; padding:12px 28px; font-size:13px; font-weight:700; cursor:pointer; font-family:'Poppins','Inter',sans-serif; transition:all 0.3s ease;" onmouseover="this.style.background='#C40000'" onmouseout="this.style.background='#E60000'">Choose Your Track</button>
+      <button (click)="scrollToTracks()" style="background:#FFFFFF; color:#333333; border:1px solid #333333; border-radius:8px; padding:12px 28px; font-size:13px; font-weight:700; cursor:pointer; font-family:'Poppins','Inter',sans-serif; transition:all 0.3s ease;">View All Tracks</button>
     </div>
 
     <!-- ── Stats Grid ── 4 equal columns, pixel-perfect spacing -->
-    <div style="border-top:1px solid #EEEEEE; padding-top:48px; max-width:960px; margin:0 auto;">
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0;">
+    <div style="max-width:1050px; margin:0 auto;">
+      <div style="display:flex; justify-content:space-between; gap:24px;">
 
         <!-- Prize Pool -->
         <div style="display:flex; flex-direction:column; align-items:center;">
-          <div style="width:88px; height:88px; background:#FADADD; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E60000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-            </svg>
+          <div style="width:96px; height:96px; background:#FDE8E8; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
           </div>
-          <div style="font-size:22px; font-weight:800; color:#000000; line-height:1;">£20,000</div>
-          <div style="font-size:13px; color:#888888; margin-top:6px;">Prize Pool</div>
+          <div style="font-size:20px; font-weight:800; color:#000000; line-height:1;">£20,000</div>
+          <div style="font-size:13px; color:#888888; margin-top:4px;">Prize Pool</div>
         </div>
 
         <!-- Competition Style -->
         <div style="display:flex; flex-direction:column; align-items:center;">
-          <div style="width:88px; height:88px; background:#FADADD; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E60000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
-            </svg>
+          <div style="width:96px; height:96px; background:#FDE8E8; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
           </div>
-          <div style="font-size:22px; font-weight:800; color:#000000; line-height:1;">Solo</div>
-          <div style="font-size:13px; color:#888888; margin-top:6px;">Competition Style</div>
+          <div style="font-size:20px; font-weight:800; color:#000000; line-height:1;">Solo</div>
+          <div style="font-size:13px; color:#888888; margin-top:4px;">Competition Style</div>
         </div>
 
         <!-- Pro Tracks -->
         <div style="display:flex; flex-direction:column; align-items:center;">
-          <div style="width:88px; height:88px; background:#FADADD; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E60000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
+          <div style="width:96px; height:96px; background:#FDE8E8; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
           </div>
-          <div style="font-size:22px; font-weight:800; color:#000000; line-height:1;">9</div>
-          <div style="font-size:13px; color:#E60000; margin-top:6px; font-weight:600;">Pro Tracks</div>
+          <div style="font-size:20px; font-weight:800; color:#000000; line-height:1;">9</div>
+          <div style="font-size:13px; color:#888888; margin-top:4px;">Pro Tracks</div>
         </div>
 
-        <!-- Ages — crossed swords (Lucide "Swords" icon) -->
+        <!-- Ages — crossed swords -->
         <div style="display:flex; flex-direction:column; align-items:center;">
-          <div style="width:88px; height:88px; background:#FADADD; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E60000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <!-- Sword 1: handle bottom-left → blade top-right -->
-              <line x1="3" y1="21" x2="21" y2="3"/>
-              <!-- Guard 1: perpendicular bar -->
-              <line x1="5.5" y1="13.5" x2="10.5" y2="18.5"/>
-              <!-- Sword 2: handle bottom-right → blade top-left -->
-              <line x1="21" y1="21" x2="3" y2="3"/>
-              <!-- Guard 2: perpendicular bar -->
-              <line x1="18.5" y1="13.5" x2="13.5" y2="18.5"/>
+          <div style="width:96px; height:96px; background:#FDE8E8; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="#FDE8E8" stroke="#E60000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Sword 2 (Top-Left) -->
+              <g transform="rotate(-135 12 12)">
+                <path d="M10 10.5 L19.5 10.5 L21 12 L19.5 13.5 L10 13.5 Z" />
+                <line x1="10" y1="12" x2="19.5" y2="12" />
+                <rect x="8" y="8" width="2" height="8" rx="1" />
+                <rect x="4" y="11" width="4" height="2" />
+                <circle cx="3" cy="12" r="1.5" />
+              </g>
+              <!-- Sword 1 (Top-Right) -->
+              <g transform="rotate(-45 12 12)">
+                <path d="M10 10.5 L19.5 10.5 L21 12 L19.5 13.5 L10 13.5 Z" />
+                <line x1="10" y1="12" x2="19.5" y2="12" />
+                <rect x="8" y="8" width="2" height="8" rx="1" />
+                <rect x="4" y="11" width="4" height="2" />
+                <circle cx="3" cy="12" r="1.5" />
+              </g>
             </svg>
           </div>
-          <div style="font-size:22px; font-weight:800; color:#000000; line-height:1;">7–19</div>
-          <div style="font-size:13px; color:#888888; margin-top:6px;">Ages</div>
+          <div style="font-size:20px; font-weight:800; color:#000000; line-height:1;">7-19</div>
+          <div style="font-size:13px; color:#888888; margin-top:4px;">Ages</div>
         </div>
 
       </div>
@@ -105,81 +101,77 @@
   <!-- ===== TRACKS ===== -->
   <section id="tracks-section" style="background:#FFFFFF; padding:64px 48px;">
     <div style="max-width:1100px; margin:0 auto;">
-      <h2 style="font-size:28px; font-weight:700; color:#000000; text-align:center; margin:0 0 10px 0;">Choose Your Mastery Battle Track</h2>
-      <p style="font-size:16px; color:#555555; text-align:center; margin:0 0 12px 0;">Select one or more professional-grade tracks aligned with your career interests. Each costs £25 to enter.</p>
-      <div style="display:flex; justify-content:center; gap:24px; margin-bottom:40px; flex-wrap:wrap;">
-        <span style="font-size:13px; color:#666; background:#F5F5F5; padding:6px 14px; border-radius:20px;">Individuals: 7–19</span>
-        <span style="font-size:13px; color:#666; background:#F5F5F5; padding:6px 14px; border-radius:20px;">Entry Fee: £25 per track</span>
-        <span style="font-size:13px; color:#666; background:#F5F5F5; padding:6px 14px; border-radius:20px;">Globally Open</span>
+      <h2 style="font-size:32px; font-weight:800; color:#000000; text-align:center; margin:0 0 16px 0;">Choose Your Mastery Battle Track</h2>
+      <p style="font-size:15px; color:#555555; text-align:center; margin:0 auto 40px auto; max-width:700px;">Select one or more professional-grade tracks aligned with your career interests. Each costs £25 to enter.</p>
+      <div style="display:flex; justify-content:center; gap:16px; margin-bottom:48px; flex-wrap:wrap;">
+        <span style="font-size:12px; font-weight:600; color:#333333; background:#FFFFFF; border:1px solid #E5E7EB; padding:6px 16px; border-radius:24px;">Trailblazers (10 and under)</span>
+        <span style="font-size:12px; font-weight:600; color:#333333; background:#FFFFFF; border:1px solid #E5E7EB; padding:6px 16px; border-radius:24px;">Visioneers (11-14)</span>
+        <span style="font-size:12px; font-weight:600; color:#333333; background:#FFFFFF; border:1px solid #E5E7EB; padding:6px 16px; border-radius:24px;">Strategists (15-19)</span>
       </div>
 
       <!-- 3-Column Grid -->
       <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
         @for (track of tracks; track track.id) {
-          <div style="background:#F5F5F5; border:1.6px solid rgba(15, 37, 110, 0.1); border-radius:15px; padding:20px; display:flex; flex-direction:column; box-shadow:none; height:100%;">
+          <div style="background:#FAFAFA; border:1px solid #E5E7EB; border-radius:16px; padding:32px 24px; display:flex; flex-direction:column; height:100%;">
             
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
+            <div style="margin-bottom:20px;">
               <!-- Top-Left Pink Icon Box -->
-              <div style="background:rgba(210, 10, 0, 0.15); border-radius:15px; color:#d20a00; font-size:20px; padding:12.5px; font-weight:700; display:flex; align-items:center; justify-content:center; width:52px; height:52px;">
-                {{ track.id }}
-              </div>
-              
-              <!-- Age Category Tab -->
-              <div style="background:#FFFFFF; border-radius:8px; padding:10px 16px; font-size:12px; font-weight:500; color:#000000;">
-                Age: 16+
-              </div>
+              <div style="background:#FDE8E8; border-radius:12px; width:48px; height:48px;"></div>
             </div>
 
             <!-- Title & Description -->
-            <h3 style="font-size:21px; font-weight:700; color:#000000; margin:0 0 16px 0; line-height:21px; font-family:'Gilmer', 'DM Sans', 'Poppins', sans-serif;">{{ track.title }}</h3>
-            <p style="font-size:16px; color:#757783; line-height:28px; margin:0 0 24px 0; font-weight:400;">{{ track.description }}</p>
+            <h3 style="font-size:18px; font-weight:700; color:#000000; margin:0 0 12px 0; line-height:1.3; font-family:'Gilmer', 'DM Sans', 'Poppins', sans-serif;">{{ track.title }}</h3>
+            <p style="font-size:14px; color:#666666; line-height:1.6; margin:0 0 24px 0; font-weight:400;">{{ track.description }}</p>
             
             <div style="flex:1;">
               <!-- Phase 1 -->
-              <div style="margin-bottom:16px;">
-                <div style="display:inline-block; font-size:12px; font-weight:500; color:#000000; background:rgba(15, 37, 110, 0.1); border-radius:9px; padding:10px 16px; margin-bottom:12px;">Phase 1: Online Shortlisting</div>
-                <div style="font-size:15px; color:#757783; line-height:25px; margin:0; font-weight:400;">{{ track.phase1 }}</div>
+              <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
+                <div style="background:#E5E7EB; border-radius:12px; padding:6px 12px; font-size:12px; font-weight:700; color:#333333; white-space:nowrap;">Phase 1:</div>
+                <div style="font-size:13px; color:#666666; line-height:1.5; padding-top:4px;">{{ track.phase1 }}</div>
               </div>
               
               <!-- Finale -->
-              <div style="margin-bottom:16px;">
-                <div style="display:inline-block; font-size:12px; font-weight:500; color:#000000; background:rgba(15, 37, 110, 0.1); border-radius:9px; padding:10px 16px; margin-bottom:12px;">Finale: Live Pitch</div>
-                <div style="font-size:15px; color:#757783; line-height:28px; margin:0; font-weight:400;">{{ track.final }}</div>
+              <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:24px;">
+                <div style="background:#E5E7EB; border-radius:12px; padding:6px 12px; font-size:12px; font-weight:700; color:#333333; white-space:nowrap;">Final:</div>
+                <div style="font-size:13px; color:#666666; line-height:1.5; padding-top:4px;">{{ track.final }}</div>
               </div>
+
+              <!-- Line Separator -->
+              <hr style="border:none; border-top:1px solid #E5E7EB; margin:0 0 24px 0;" />
               
               <!-- Extras -->
-              <div style="margin-bottom:24px;">
-                <span style="font-size:15px; font-weight:700; color:#000000;">Extras: </span>
-                <span style="font-size:15px; color:#757783; line-height:28px; font-weight:400;">{{ track.extras }}</span>
+              <div style="margin-bottom:32px;">
+                <span style="font-size:13px; font-weight:800; color:#000000;">Extras: </span>
+                <span style="font-size:13px; color:#666666; line-height:1.6; font-weight:400;">{{ track.extras }}</span>
               </div>
             </div>
-            
-            <!-- Button -->
-            <button [routerLink]="['/skillstorm/challenges', getSlug(track.title)]" style="background:#FFFFFF; color:#000000; border:0.8px solid rgba(15, 37, 110, 0.1); border-radius:8px; padding:10px 80px; font-size:12px; font-weight:500; cursor:pointer; font-family:'Poppins','Inter',sans-serif; transition:background 0.3s ease; width:auto; text-align:center; margin-top:auto; align-self:flex-start;" onmouseover="this.style.background='#F9FAFB'" onmouseout="this.style.background='#FFFFFF'">Enter Track — £25</button>
+
+            <!-- Enter Track Button -->
+            <button [routerLink]="['/skillstorm/challenges', getSlug(track.title)]" style="width:100%; background:#FFFFFF; border:none; border-radius:50px; padding:14px; font-size:13px; font-weight:800; color:#000000; box-shadow:0 2px 6px rgba(0,0,0,0.06); cursor:pointer; margin-top:auto; font-family:'Poppins', sans-serif;">Enter Track - £25</button>
           </div>
         }
       </div>
     </div>
   </section>
 
-  <!-- ===== PRIZES & PERKS ===== -->
-  <section style="background:#FFF8F5; padding:64px 48px; border-top:1px solid #E8E8E8;">
-    <div style="max-width:1000px; margin:0 auto;">
-      <div style="text-align:center; margin-bottom:8px;">
-        <span style="font-size:12px; font-weight:700; color:#E60000; letter-spacing:0.1em; text-transform:uppercase;">SkillStorm Rewards</span>
+  <!-- ===== PRIZES & OPPORTUNITIES ===== -->
+  <section style="background:#FFFFFF; padding:80px 48px; border-top:1px solid #E8E8E8;">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:16px;">
+        <span style="display:inline-block; border:1px solid #F97316; border-radius:50px; padding:6px 20px; font-size:12px; font-weight:600; color:#F97316;">Total pool: £30,000</span>
       </div>
-      <h2 style="font-size:28px; font-weight:700; color:#000000; text-align:center; margin:0 0 10px 0;">Prizes &amp; Perks</h2>
-      <p style="font-size:15px; color:#666666; text-align:center; margin:0 0 40px 0;">Recognition, rewards, and career-launching opportunities.</p>
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px;">
+      <h2 style="font-size:36px; font-weight:800; color:#000000; text-align:center; margin:0 0 16px 0;">Prizes &amp; Opportunities</h2>
+      <p style="font-size:16px; color:#6B7280; text-align:center; margin:0 auto 56px auto; max-width:600px;">Awards distributed across age categories and the Grand Finale</p>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px;">
         @for (perk of perks; track perk.title; let i = $index) {
-          <div style="background:#FFFFFF; border:1px solid #E8E8E8; border-radius:10px; padding:22px 18px; text-align:center; box-shadow:0 1px 8px rgba(0,0,0,0.05);">
-            <div style="width:44px; height:44px; border:2px solid #E60000; border-radius:50%; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; background:#FFFFFF;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E60000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div style="background:#FFFFFF; border:1px solid #E5E7EB; border-radius:16px; padding:32px; display:flex; flex-direction:column; align-items:flex-start; text-align:left; box-shadow:none;">
+            <div style="width:48px; height:48px; background:#FDE8E8; border-radius:12px; margin-bottom:24px; display:flex; align-items:center; justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E60000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path [attr.d]="perkIcons[i] || perkIcons[0]"/>
               </svg>
             </div>
-            <div style="font-size:14px; font-weight:700; color:#000000; margin-bottom:5px;">{{ perk.title }}</div>
-            <div style="font-size:13px; color:#666666; line-height:1.5;">{{ perk.subtitle }}</div>
+            <div style="font-size:16px; font-weight:800; color:#000000; margin-bottom:10px;">{{ perk.title }}</div>
+            <div style="font-size:14px; color:#888888; line-height:1.6; font-weight:400;">{{ perk.subtitle }}</div>
           </div>
         }
       </div>
@@ -187,30 +179,30 @@
   </section>
 
   <!-- ===== COMPETITION FORMAT ===== -->
-  <section style="background:#FFFFFF; padding:64px 48px; border-top:1px solid #E8E8E8;">
+  <section style="background:#FBFBFB; padding:64px 48px; border-top:1px solid #E8E8E8;">
     <div style="max-width:1000px; margin:0 auto;">
       <h2 style="font-size:28px; font-weight:700; color:#000000; text-align:center; margin:0 0 10px 0;">Competition Format</h2>
       <p style="font-size:15px; color:#666666; text-align:center; margin:0 0 40px 0;">Two phases: online shortlisting and live knockout Grand Finale.</p>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:28px;">
 
         <!-- Phase 1 -->
-        <div style="background:#FFF8F5; border:1px solid #F0E0D8; border-radius:10px; padding:30px;">
+        <div style="background:#FBFBFB; border:0.8px solid rgba(21, 93, 252, 0.2); border-radius:10px; padding:30px;">
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <div style="width:36px; height:36px; background:#E60000; border-radius:8px; display:flex; align-items:center; justify-content:center;">
+            <div style="width:36px; height:36px; background:#155dfc; border-radius:8px; display:flex; align-items:center; justify-content:center;">
               <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
             </div>
             <div>
-              <div style="font-size:11px; font-weight:700; color:#E60000; text-transform:uppercase; letter-spacing:0.08em;">Phase 1</div>
+              <div style="font-size:11px; font-weight:700; color:#155dfc; text-transform:uppercase; letter-spacing:0.08em;">Phase 1</div>
               <div style="font-size:17px; font-weight:700; color:#000000;">Online Shortlisting</div>
             </div>
           </div>
-          <p style="font-size:14px; color:#555555; line-height:1.7; margin:0 0 16px 0;">Submit your track video, document, or project for panel review. The best papers progress to the Grand Finale for live clarity and relevance.</p>
-          <div style="font-size:13px; font-weight:700; color:#000000; margin-bottom:6px;">Assessment</div>
-          <p style="font-size:13px; color:#555555; margin:0;">Top 40 per class (16+ age group) advance to the Grand Finale.</p>
+          <p style="font-size:14px; color:#555555; line-height:1.7; margin:0 0 16px 0;">Submit your task (video, document, or project) as per the brief. Entries judged for creativity, clarity, and relevance.</p>
+          <div style="font-size:13px; font-weight:800; color:#000000; margin-bottom:6px;">Advancement:</div>
+          <p style="font-size:13px; color:#555555; margin:0;">Top 48 per track (16 per age group) advance to the Grand Finale.</p>
         </div>
 
         <!-- Phase 2 -->
-        <div style="background:#FFF8F5; border:1px solid #F0E0D8; border-radius:10px; padding:30px;">
+        <div style="background:#FBFBFB; border:0.8px solid rgba(252, 21, 21, 0.2); border-radius:10px; padding:30px;">
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <div style="width:36px; height:36px; background:#E60000; border-radius:8px; display:flex; align-items:center; justify-content:center;">
               <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -220,48 +212,52 @@
               <div style="font-size:17px; font-weight:700; color:#000000;">Offline Grand Finale</div>
             </div>
           </div>
-          <p style="font-size:14px; color:#555555; line-height:1.7; margin:0 0 16px 0;">Location announced 3 months before the accessibility. Final presentations (approx. 3–5 minutes each).</p>
+          <p style="font-size:14px; color:#555555; line-height:1.7; margin:0 0 16px 0;">Location announced (regional hubs for accessibility).</p>
           <div style="margin-bottom:10px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:6px; height:6px; border-radius:50%; background:#E60000;"></div>
+              <span style="font-size:13px; color:#555;">1-vs-1 live knockout battles — 5–7 minutes each</span>
+            </div>
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
               <div style="width:6px; height:6px; border-radius:50%; background:#E60000;"></div>
               <span style="font-size:13px; color:#555;">Industry and academic expert judges</span>
             </div>
             <div style="display:flex; align-items:center; gap:8px;">
               <div style="width:6px; height:6px; border-radius:50%; background:#E60000;"></div>
-              <span style="font-size:13px; color:#555;">Judged on clarity, performance, and innovation</span>
+              <span style="font-size:13px; color:#555;">Judged on clarity, confidence, creativity, and skill</span>
             </div>
           </div>
-          <div style="font-size:13px; font-weight:700; color:#000000; margin-bottom:8px;">Progression</div>
+          <div style="font-size:13px; font-weight:800; color:#000000; margin-bottom:8px;">Progression:</div>
           <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
-            @for (n of [16, 8, 4, 2, 1]; track n) {
+            @for (n of [16, 4, 2, 1]; track n) {
               <div [style.background]="n === 1 ? '#E60000' : '#F5F5F5'" [style.color]="n === 1 ? '#fff' : '#333'" style="border-radius:6px; padding:5px 10px; font-size:13px; font-weight:700;">{{ n }}</div>
               @if (n !== 1) { <span style="color:#999; font-size:12px;">→</span> }
             }
-            <span style="font-size:12px; color:#E60000; font-weight:700; margin-left:4px;">Champion</span>
+            <span style="font-size:12px; color:#E60000; font-weight:800; margin-left:4px;">Champion</span>
           </div>
-          <div style="font-size:12px; color:#999; margin-top:6px;">Per track, per age category</div>
+          <div style="font-size:12px; color:#999; margin-top:6px;">Per track per age category</div>
         </div>
       </div>
 
       <!-- Purpose of Entry Fee -->
-      <div style="background:#FFF8F5; border:1px solid #F0E0D8; border-radius:10px; padding:24px 28px; display:flex; gap:20px; align-items:flex-start;">
+      <div style="background:#FBFBFB; border:1px solid rgba(252, 21, 21, 0.2); border-radius:10px; padding:24px 28px; display:flex; gap:20px; align-items:flex-start;">
         <div style="width:40px; height:40px; background:#FEE2E2; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
           <svg width="20" height="20" fill="none" stroke="#E60000" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
         <div>
           <div style="font-size:15px; font-weight:700; color:#000000; margin-bottom:6px;">Purpose of the Entry Fee</div>
-          <p style="font-size:14px; color:#555555; line-height:1.7; margin:0;">Your entry fee guarantees you that your £25 entry fee funds the £20,000 prize pool and rewards selection tool logics in your competition edition.</p>
+          <p style="font-size:14px; color:#555555; line-height:1.7; margin:0;">Your entry fee guarantees verified participation, funds the £10,000 global prize pool, and covers certification and logistics. It never affects your competition score.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== KEY DATES & RULES ===== -->
-  <section style="background:#FFF8F5; padding:64px 48px; border-top:1px solid #E8E8E8;">
+  <section style="background:#FBFBFB; padding:64px 48px; border-top:1px solid #E8E8E8;">
     <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
 
       <!-- Key Dates -->
-      <div style="background:#FFFFFF; border:1px solid #E8E8E8; border-radius:10px; padding:30px;">
+      <div style="background:#FBFBFB; border:1.6px solid rgba(117, 119, 131, 0.21); border-radius:10px; padding:30px;">
         <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
           <div style="width:32px; height:32px; background:#FEE2E2; border-radius:8px; display:flex; align-items:center; justify-content:center;">
             <svg width="16" height="16" fill="none" stroke="#E60000" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -273,20 +269,21 @@
           <span style="font-size:14px; font-weight:700; color:#10B981; background:#ECFDF5; padding:4px 12px; border-radius:20px;">Now Open</span>
         </div>
         <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 0;">
-          <span style="font-size:14px; color:#333333; font-weight:500;">Competition Ends</span>
-          <span style="font-size:14px; font-weight:700; color:#FFFFFF; background:#E60000; padding:4px 12px; border-radius:20px;">30th December 2025</span>
+          <span style="font-size:14px; color:#333333; font-weight:500;">Competition Ends:</span>
+          <span style="font-size:14px; font-weight:700; color:#FFFFFF; background:#E60000; padding:4px 12px; border-radius:20px;">30th December 2026</span>
         </div>
+        <div style="font-size:13px; color:#888888; font-style:italic; margin-top:8px;">Exact dates and venue announced later</div>
       </div>
 
       <!-- Rules -->
-      <div style="background:#FFFFFF; border:1px solid #E8E8E8; border-radius:10px; padding:30px;">
+      <div style="background:#FBFBFB; border:1.6px solid rgba(117, 119, 131, 0.21); border-radius:10px; padding:30px;">
         <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
           <div style="width:32px; height:32px; background:#FEE2E2; border-radius:8px; display:flex; align-items:center; justify-content:center;">
             <svg width="16" height="16" fill="none" stroke="#E60000" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
           <h3 style="font-size:18px; font-weight:700; color:#000000; margin:0;">Rules</h3>
         </div>
-        @for (rule of ['Each entry must be original — no AI-assisted submissions', 'Submit via YouTube or Google Drive (max 500 MB)', 'Video length: 3–20 seconds — 1 minute (depends on track)', 'Only one entry per track, make competition accepted', 'In-person in UK, based on first-come-first-display opportunity']; track rule) {
+        @for (rule of ['Work must be original — no AI or copied submissions', 'Submit via YouTube or Google Drive (max 200 MB)', 'Video length: 30 seconds – 3 minutes (depends on track)', 'One entry per track (multi-track participation allowed)', 'Under-18s need parent/guardian consent', 'Fees shown in £; local promotions may display equivalents']; track rule) {
           <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:10px;">
             <div style="width:16px; height:16px; border-radius:50%; background:#E60000; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>

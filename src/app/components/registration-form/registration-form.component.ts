@@ -257,6 +257,7 @@ import { Router } from '@angular/router';
 })
 export class RegistrationFormComponent implements OnInit {
   @Input() entryFee: number = 1;
+  @Input() challengeName: string = '';
 
   private fb = inject(FormBuilder);
   private router = inject(Router);
@@ -306,6 +307,13 @@ export class RegistrationFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
+      const participantName = this.registerForm.get('fullName')?.value;
+      localStorage.setItem('openChallengeParticipantName', participantName);
+      localStorage.setItem('openChallengeSelectedChallenge', this.challengeName);
+      
+      const randomId = Math.floor(10000 + Math.random() * 90000);
+      localStorage.setItem('openChallengeRegistrationId', `OC-2024-${randomId}`);
+
       this.isSubmitted = true;
       this.registerForm.reset();
       this.showParentFields = false;

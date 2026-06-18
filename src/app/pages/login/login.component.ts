@@ -157,7 +157,7 @@ export class LoginComponent {
   onSubmit(): void {
     if (this.loginForm.valid) {
       console.log('Login credentials:', this.loginForm.value);
-      this.router.navigate(['/skillstorm/school-dashboard']);
+      this.router.navigate(['/skillstorm/open-challenges-dashboard']);
     } else {
       this.loginForm.markAllAsTouched();
     }

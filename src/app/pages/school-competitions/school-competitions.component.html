@@ -242,7 +242,7 @@
     <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; align-items:center; margin-bottom:64px;">
       
       <!-- Single Team -->
-      <div style="background:#F5F5F5; border-radius:16px; padding:48px 32px; display:flex; flex-direction:column; text-align:center; height:100%;">
+      <div class="pricing-card" [class.active]="activePlan === 'single'" (mouseenter)="activePlan = 'single'" (mouseleave)="activePlan = 'full'">
         <h3 style="font-family:'Kumbh Sans',sans-serif; font-size:17px; font-weight:600; color:#000000; margin:0 0 16px 0;">Single Team</h3>
         <div style="font-family:'Gilmer', 'DM Sans', sans-serif; font-size:46px; font-weight:800; color:#000000; line-height:1; margin:0 0 16px 0;">£50</div>
         <p style="font-family:'Kumbh Sans',sans-serif; font-size:14px; color:#888888; margin:0 0 40px 0;">1 team in any category</p>
@@ -266,12 +266,12 @@
           </li>
         </ul>
         
-        <button routerLink="/skillstorm/registration-wizard" [queryParams]="{ plan: 'single' }" style="width:100%; background:#FFFFFF; color:#000000; font-family:'Kumbh Sans',sans-serif; font-size:15px; font-weight:700; border:none; border-radius:8px; padding:16px; cursor:pointer; margin-top:40px; text-align:center; display:block;">Select Plan</button>
+        <button routerLink="/skillstorm/registration-wizard" [queryParams]="{ plan: 'single' }" class="plan-btn" [class.active]="activePlan === 'single'">Select Plan</button>
       </div>
 
       <!-- Full Set (Most Popular) -->
-      <div style="position:relative; background:#FFFFFF; border:2px solid #E60000; border-radius:16px; padding:48px 32px; display:flex; flex-direction:column; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
-        <div style="position:absolute; top:-16px; left:50%; transform:translateX(-50%); background:#E60000; color:#FFFFFF; font-family:'Kumbh Sans',sans-serif; font-size:13px; font-weight:700; padding:8px 24px; border-radius:30px;">Most Popular</div>
+      <div class="pricing-card" [class.active]="activePlan === 'full'" (mouseenter)="activePlan = 'full'" (mouseleave)="activePlan = 'full'">
+        <div *ngIf="activePlan === 'full'" style="position:absolute; top:-16px; left:50%; transform:translateX(-50%); background:#E60000; color:#FFFFFF; font-family:'Kumbh Sans',sans-serif; font-size:13px; font-weight:700; padding:8px 24px; border-radius:30px; transition: opacity 0.3s;">Most Popular</div>
         <h3 style="font-family:'Kumbh Sans',sans-serif; font-size:17px; font-weight:600; color:#000000; margin:0 0 16px 0;">Full Set</h3>
         <div style="font-family:'Gilmer', 'DM Sans', sans-serif; font-size:46px; font-weight:800; color:#000000; line-height:1; margin:0 0 16px 0;">£150</div>
         <p style="font-family:'Kumbh Sans',sans-serif; font-size:14px; color:#888888; margin:0 0 40px 0;">1 team in each of 3 categories</p>
@@ -303,11 +303,11 @@
           </li>
         </ul>
         
-        <button routerLink="/skillstorm/registration-wizard" [queryParams]="{ plan: 'full' }" style="width:100%; background:#E60000; color:#FFFFFF; font-family:'Kumbh Sans',sans-serif; font-size:15px; font-weight:700; border:none; border-radius:8px; padding:16px; cursor:pointer; margin-top:40px; text-align:center; display:block;">Select Plan</button>
+        <button routerLink="/skillstorm/registration-wizard" [queryParams]="{ plan: 'full' }" class="plan-btn" [class.active]="activePlan === 'full'">Select Plan</button>
       </div>
 
       <!-- Additional Team -->
-      <div style="background:#F5F5F5; border-radius:16px; padding:48px 32px; display:flex; flex-direction:column; text-align:center; height:100%;">
+      <div class="pricing-card" [class.active]="activePlan === 'additional'" (mouseenter)="activePlan = 'additional'" (mouseleave)="activePlan = 'full'">
         <h3 style="font-family:'Kumbh Sans',sans-serif; font-size:17px; font-weight:600; color:#000000; margin:0 0 16px 0;">Additional Team</h3>
         <div style="font-family:'Gilmer', 'DM Sans', sans-serif; font-size:46px; font-weight:800; color:#000000; line-height:1; margin:0 0 16px 0;">+£50</div>
         <p style="font-family:'Kumbh Sans',sans-serif; font-size:14px; color:#888888; margin:0 0 40px 0;">Per extra team in any category</p>
@@ -327,7 +327,7 @@
           </li>
         </ul>
         
-        <button routerLink="/skillstorm/registration-wizard" [queryParams]="{ plan: 'additional' }" style="width:100%; background:#FFFFFF; color:#000000; font-family:'Kumbh Sans',sans-serif; font-size:15px; font-weight:700; border:none; border-radius:8px; padding:16px; cursor:pointer; margin-top:40px; text-align:center; display:block;">Select Plan</button>
+        <button routerLink="/skillstorm/registration-wizard" [queryParams]="{ plan: 'additional' }" class="plan-btn" [class.active]="activePlan === 'additional'">Select Plan</button>
       </div>
 
     </div>

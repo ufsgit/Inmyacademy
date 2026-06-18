@@ -1,0 +1,263 @@
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.dashboard-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 8px 0;
+}
+.dashboard-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-tab:hover {
+  background: #f5f5f5;
+}
+.nav-tab.active {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  color: #000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.dashboard-content {
+  margin-bottom: 60px;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.dashboard-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.info-group {
+  margin-bottom: 16px;
+}
+.info-group:last-child {
+  margin-bottom: 0;
+}
+.info-group label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+.info-group p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+}
+
+.text-red {
+  color: #d32f2f !important;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-orange {
+  background: #f97316;
+  color: #fff;
+}
+.badge-green {
+  background: #22c55e;
+  color: #fff;
+}
+.badge-red-solid {
+  background: #dc2626;
+  color: #fff;
+  padding: 2px 8px;
+  font-size: 11px;
+}
+
+.update-item {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+.update-item h4 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+.update-item p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* Overview Section */
+.overview-section {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 24px;
+}
+.overview-section h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 8px 0;
+}
+.overview-section p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+.overview-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.overview-section li {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+/* Upload Section */
+.upload-section {
+  margin-bottom: 24px;
+}
+.upload-section label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+.upload-box {
+  border: 1px dashed #ccc;
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.upload-box p {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+.upload-box span {
+  font-size: 12px;
+  color: #888;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+.help-text {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}
+.btn-primary {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: #b91c1c;
+}
+
+/* Messages */
+.message-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.message-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+.message-card p {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: #555;
+}
+.message-date {
+  font-size: 12px;
+  color: #888;
+}
+
+.dashboard-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
