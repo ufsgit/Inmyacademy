@@ -6,17 +6,17 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section style="padding:60px 24px; background:#FFF6F6; border-top:1px solid #EBEBEB; font-family:'Poppins','Inter',sans-serif;">
-      <div style="max-width:900px; margin:0 auto;">
-        <h2 style="font-size:24px; font-weight:700; color:#000000; margin:0 0 28px 0;">How the Competition Works</h2>
+    <section style="padding:80px 24px; background:#F8F8F8; border-top:1px solid #EBEBEB; font-family:'Kumbh Sans',sans-serif;">
+      <div style="max-width:1000px; margin:0 auto;">
+        <h2 style="font-size:28.8px; font-weight:700; color:#000000; margin:0 0 32px 0; font-family:'Gilmer', 'DM Sans', sans-serif;">How the Competition Works</h2>
         
-        <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; flex-direction:column; gap:16px;">
           @for (step of steps; track $index) {
-            <div style="background:#FFFFFF; border:1px solid #E8E8E8; border-radius:10px; padding:20px 24px; display:flex; align-items:center; gap:18px; box-shadow:0 1px 6px rgba(0,0,0,0.06);">
-              <div style="width:38px; height:38px; border-radius:8px; background:#2563EB; display:flex; align-items:center; justify-content:center; color:#ffffff; font-weight:800; font-size:16px; flex-shrink:0;">
+            <div style="background:#FFFFFF; border:1.6px solid rgba(117,119,131,0.21); border-radius:14px; padding:18px 24px; display:flex; align-items:center; gap:20px; box-shadow:none;">
+              <div style="width:40px; height:40px; border-radius:8px; background:#638EE6; display:flex; align-items:center; justify-content:center; color:#ffffff; font-weight:700; font-size:18px; flex-shrink:0;">
                 {{ $index + 1 }}
               </div>
-              <div style="font-size:16px; font-weight:600; color:#111111; line-height:1.5;">
+              <div style="font-size:18px; font-weight:400; color:#020101; line-height:1.5;">
                 {{ step }}
               </div>
             </div>
