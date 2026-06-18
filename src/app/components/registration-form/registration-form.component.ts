@@ -68,7 +68,7 @@ import { Router } from '@angular/router';
 
     .register-btn {
       width: 100%;
-      background-color: #D32F2F;
+      background-color: #D41101;
       color: #ffffff;
       border: none;
       border-radius: 6px;
@@ -81,26 +81,26 @@ import { Router } from '@angular/router';
     }
 
     .register-btn:hover {
-      background-color: #B71C1C;
+      background-color: #B50E01;
     }
 
     .register-btn:disabled {
-      background-color: #D32F2F;
+      background-color: #D41101;
       opacity: 0.7;
       cursor: not-allowed;
     }
   `],
   template: `
-    <section style="padding:60px 24px; background:#FFF6F6; border-top:1px solid #EBEBEB; font-family:'Poppins','Inter',sans-serif;">
-      <div class="max-w-[1200px] mx-auto px-6">
+    <section style="padding:80px 24px; background:#FFFFFF; border-top:1px solid #EBEBEB; font-family:'Kumbh Sans',sans-serif;">
+      <div class="max-w-[1000px] mx-auto px-6">
 
         <!-- Section Heading -->
-        <h2 style="font-size:26px; font-weight:800; color:#111111; margin-bottom:24px;">
+        <h2 style="font-size:28.8px; font-weight:700; color:#000000; margin-bottom:40px; font-family:'Gilmer', 'DM Sans', sans-serif;">
           Register for This Challenge
         </h2>
 
         <!-- Card -->
-        <div style="background:#FAFAF8; border:1px solid #EBEBEB; border-radius:14px; padding:40px 48px;">
+        <div style="background:#F8F8F8; border:1.6px solid rgba(117,119,131,0.21); border-radius:20px; padding:40px 48px; box-shadow:none;">
 
           <!-- Entry Fee Banner -->
           <div style="background:#FEF2F2; border:1px solid #FEE2E2; border-radius:10px; padding:16px 20px; margin-bottom:28px;">
@@ -211,7 +211,7 @@ import { Router } from '@angular/router';
               <div style="margin-bottom:18px;">
                 <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer;">
                   <input type="checkbox" formControlName="parentConsent"
-                         style="margin-top:3px; width:16px; height:16px; cursor:pointer; accent-color:#D32F2F;" />
+                         style="margin-top:3px; width:16px; height:16px; cursor:pointer; accent-color:#D41101;" />
                   <span style="font-size:14px; color:#666666; font-weight:500; line-height:1.5;">
                     I confirm that I approve this participation.
                   </span>
